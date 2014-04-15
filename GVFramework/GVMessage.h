@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GVContact.h"
 
 typedef NS_ENUM(NSInteger, GVMessageType) {
     GVMessageTypeUnknown      = -1,
@@ -15,8 +16,6 @@ typedef NS_ENUM(NSInteger, GVMessageType) {
     GVMessageTypeTextReceived = 10,
     GVMessageTypeTextSent     = 11
 };
-
-@class GVContact;
 
 @interface GVMessage : NSObject
 

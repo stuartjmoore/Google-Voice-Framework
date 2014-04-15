@@ -20,4 +20,8 @@
     return textMessage? textMessage.text : @"";
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"<%@> %@: %@", self.identifier, self.contact.name, self.textMessages];
+}
+
 @end

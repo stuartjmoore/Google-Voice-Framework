@@ -14,4 +14,8 @@
     return GVMessageTypeVoicemail;
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"<%@> %@: \"%@\" [voicemail]", self.identifier, self.contact.name, self.text];
+}
+
 @end

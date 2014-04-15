@@ -35,4 +35,8 @@
     return self.conversation.isStarred;
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"<%@> %@", self.identifier, self.text];
+}
+
 @end
