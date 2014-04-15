@@ -11,6 +11,8 @@
 
 @interface GVFrameworkTests : XCTestCase
 
+@property (nonatomic, strong) GVUser *user;
+
 @end
 
 @implementation GVFrameworkTests
@@ -22,16 +24,21 @@
     NSString *credsFilepath = [[NSBundle bundleForClass:self.class] pathForResource:@"Creds" ofType:@"plist"];
     NSDictionary *creds = [NSDictionary dictionaryWithContentsOfFile:credsFilepath];
 
-    GVUser *user = [GVUser new];
-    user.username = creds[@"username"];
-    user.password = creds[@"password"];
-    [user login];
-//    [user unreadCounts];
-    [user messages];
+    self.user = [GVUser new];
+    self.user.username = creds[@"username"];
+    self.user.password = creds[@"password"];
 }
 
-- (void)testExample
+- (void)testUnreadCounts
 {
+    [self.user login];
+    [self.user unreadCounts];
+}
+
+- (void)testMessages
+{
+    [self.user login];
+    [self.user messages];
 }
 
 - (void)tearDown

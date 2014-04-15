@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "17FEAA1718FD46A0009C6BA5"
-               BuildableName = "GVFrameworkTests.xctest"
+               BuildableName = "UnitTests-Mac.xctest"
                BlueprintName = "UnitTests-Mac"
                ReferencedContainer = "container:GVFramework.xcodeproj">
             </BuildableReference>
