@@ -13,6 +13,44 @@
 		17E0F7F118FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
 		17E0F7F218FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
 		17E0F7F318FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
+		17E0F7F618FDC2D7008E8103 /* GVMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F7F418FDC2D7008E8103 /* GVMessage.h */; };
+		17E0F7F718FDC2D7008E8103 /* GVMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7F518FDC2D7008E8103 /* GVMessage.m */; };
+		17E0F7FA18FDC4A5008E8103 /* GVContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F7F818FDC4A5008E8103 /* GVContact.h */; };
+		17E0F7FB18FDC4A5008E8103 /* GVContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F7F818FDC4A5008E8103 /* GVContact.h */; };
+		17E0F7FC18FDC4A5008E8103 /* GVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7F918FDC4A5008E8103 /* GVContact.m */; };
+		17E0F7FD18FDC4A5008E8103 /* GVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7F918FDC4A5008E8103 /* GVContact.m */; };
+		17E0F7FE18FDC4A5008E8103 /* GVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7F918FDC4A5008E8103 /* GVContact.m */; };
+		17E0F7FF18FDC4A5008E8103 /* GVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7F918FDC4A5008E8103 /* GVContact.m */; };
+		17E0F80218FDC58A008E8103 /* GVPhone.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F80018FDC58A008E8103 /* GVPhone.h */; };
+		17E0F80318FDC58A008E8103 /* GVPhone.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F80018FDC58A008E8103 /* GVPhone.h */; };
+		17E0F80418FDC58A008E8103 /* GVPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80118FDC58A008E8103 /* GVPhone.m */; };
+		17E0F80518FDC58A008E8103 /* GVPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80118FDC58A008E8103 /* GVPhone.m */; };
+		17E0F80618FDC58A008E8103 /* GVPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80118FDC58A008E8103 /* GVPhone.m */; };
+		17E0F80718FDC58A008E8103 /* GVPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80118FDC58A008E8103 /* GVPhone.m */; };
+		17E0F80A18FDC667008E8103 /* GVMissedCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F80818FDC667008E8103 /* GVMissedCall.h */; };
+		17E0F80B18FDC667008E8103 /* GVMissedCall.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F80818FDC667008E8103 /* GVMissedCall.h */; };
+		17E0F80C18FDC667008E8103 /* GVMissedCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80918FDC667008E8103 /* GVMissedCall.m */; };
+		17E0F80D18FDC667008E8103 /* GVMissedCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80918FDC667008E8103 /* GVMissedCall.m */; };
+		17E0F80E18FDC667008E8103 /* GVMissedCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80918FDC667008E8103 /* GVMissedCall.m */; };
+		17E0F80F18FDC667008E8103 /* GVMissedCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F80918FDC667008E8103 /* GVMissedCall.m */; };
+		17E0F81218FDC6A6008E8103 /* GVVoicemail.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F81018FDC6A6008E8103 /* GVVoicemail.h */; };
+		17E0F81318FDC6A6008E8103 /* GVVoicemail.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F81018FDC6A6008E8103 /* GVVoicemail.h */; };
+		17E0F81418FDC6A6008E8103 /* GVVoicemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81118FDC6A6008E8103 /* GVVoicemail.m */; };
+		17E0F81518FDC6A6008E8103 /* GVVoicemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81118FDC6A6008E8103 /* GVVoicemail.m */; };
+		17E0F81618FDC6A6008E8103 /* GVVoicemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81118FDC6A6008E8103 /* GVVoicemail.m */; };
+		17E0F81718FDC6A6008E8103 /* GVVoicemail.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81118FDC6A6008E8103 /* GVVoicemail.m */; };
+		17E0F81A18FDC6DD008E8103 /* GVConversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F81818FDC6DD008E8103 /* GVConversation.h */; };
+		17E0F81B18FDC6DD008E8103 /* GVConversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F81818FDC6DD008E8103 /* GVConversation.h */; };
+		17E0F81C18FDC6DD008E8103 /* GVConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81918FDC6DD008E8103 /* GVConversation.m */; };
+		17E0F81D18FDC6DD008E8103 /* GVConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81918FDC6DD008E8103 /* GVConversation.m */; };
+		17E0F81E18FDC6DD008E8103 /* GVConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81918FDC6DD008E8103 /* GVConversation.m */; };
+		17E0F81F18FDC6DD008E8103 /* GVConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F81918FDC6DD008E8103 /* GVConversation.m */; };
+		17E0F82218FDC756008E8103 /* GVTextMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F82018FDC756008E8103 /* GVTextMessage.h */; };
+		17E0F82318FDC756008E8103 /* GVTextMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F82018FDC756008E8103 /* GVTextMessage.h */; };
+		17E0F82418FDC756008E8103 /* GVTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F82118FDC756008E8103 /* GVTextMessage.m */; };
+		17E0F82518FDC756008E8103 /* GVTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F82118FDC756008E8103 /* GVTextMessage.m */; };
+		17E0F82618FDC756008E8103 /* GVTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F82118FDC756008E8103 /* GVTextMessage.m */; };
+		17E0F82718FDC756008E8103 /* GVTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F82118FDC756008E8103 /* GVTextMessage.m */; };
 		17FEAA0518FD46A0009C6BA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */; };
 		17FEAA0F18FD46A0009C6BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA0D18FD46A0009C6BA5 /* InfoPlist.strings */; };
 		17FEAA1A18FD46A0009C6BA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA1918FD46A0009C6BA5 /* XCTest.framework */; };
@@ -55,6 +93,20 @@
 /* Begin PBXFileReference section */
 		17E0F7EC18FDA94D008E8103 /* GVConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GVConnection.h; path = GVConnection/GVConnection.h; sourceTree = "<group>"; };
 		17E0F7ED18FDA94D008E8103 /* GVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GVConnection.m; path = GVConnection/GVConnection.m; sourceTree = "<group>"; };
+		17E0F7F418FDC2D7008E8103 /* GVMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVMessage.h; sourceTree = "<group>"; };
+		17E0F7F518FDC2D7008E8103 /* GVMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVMessage.m; sourceTree = "<group>"; };
+		17E0F7F818FDC4A5008E8103 /* GVContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVContact.h; sourceTree = "<group>"; };
+		17E0F7F918FDC4A5008E8103 /* GVContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVContact.m; sourceTree = "<group>"; };
+		17E0F80018FDC58A008E8103 /* GVPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVPhone.h; sourceTree = "<group>"; };
+		17E0F80118FDC58A008E8103 /* GVPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVPhone.m; sourceTree = "<group>"; };
+		17E0F80818FDC667008E8103 /* GVMissedCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVMissedCall.h; sourceTree = "<group>"; };
+		17E0F80918FDC667008E8103 /* GVMissedCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVMissedCall.m; sourceTree = "<group>"; };
+		17E0F81018FDC6A6008E8103 /* GVVoicemail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVVoicemail.h; sourceTree = "<group>"; };
+		17E0F81118FDC6A6008E8103 /* GVVoicemail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVVoicemail.m; sourceTree = "<group>"; };
+		17E0F81818FDC6DD008E8103 /* GVConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVConversation.h; sourceTree = "<group>"; };
+		17E0F81918FDC6DD008E8103 /* GVConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVConversation.m; sourceTree = "<group>"; };
+		17E0F82018FDC756008E8103 /* GVTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVTextMessage.h; sourceTree = "<group>"; };
+		17E0F82118FDC756008E8103 /* GVTextMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVTextMessage.m; sourceTree = "<group>"; };
 		17FEAA0118FD46A0009C6BA5 /* GVFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GVFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		17FEAA0918FD46A0009C6BA5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -162,6 +214,20 @@
 				17FEAA1118FD46A0009C6BA5 /* GVFramework.h */,
 				17FEAA5C18FD49EA009C6BA5 /* GVUser.h */,
 				17FEAA5D18FD49EA009C6BA5 /* GVUser.m */,
+				17E0F7F818FDC4A5008E8103 /* GVContact.h */,
+				17E0F7F918FDC4A5008E8103 /* GVContact.m */,
+				17E0F80018FDC58A008E8103 /* GVPhone.h */,
+				17E0F80118FDC58A008E8103 /* GVPhone.m */,
+				17E0F7F418FDC2D7008E8103 /* GVMessage.h */,
+				17E0F7F518FDC2D7008E8103 /* GVMessage.m */,
+				17E0F80818FDC667008E8103 /* GVMissedCall.h */,
+				17E0F80918FDC667008E8103 /* GVMissedCall.m */,
+				17E0F81018FDC6A6008E8103 /* GVVoicemail.h */,
+				17E0F81118FDC6A6008E8103 /* GVVoicemail.m */,
+				17E0F81818FDC6DD008E8103 /* GVConversation.h */,
+				17E0F81918FDC6DD008E8103 /* GVConversation.m */,
+				17E0F82018FDC756008E8103 /* GVTextMessage.h */,
+				17E0F82118FDC756008E8103 /* GVTextMessage.m */,
 				17E0F7EB18FDA908008E8103 /* Connection */,
 				17FEAA0B18FD46A0009C6BA5 /* Supporting Files */,
 			);
@@ -204,9 +270,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F82218FDC756008E8103 /* GVTextMessage.h in Headers */,
 				17FEAA5E18FD49EA009C6BA5 /* GVUser.h in Headers */,
+				17E0F81218FDC6A6008E8103 /* GVVoicemail.h in Headers */,
 				17FEAA5718FD4859009C6BA5 /* GVFramework.h in Headers */,
+				17E0F80218FDC58A008E8103 /* GVPhone.h in Headers */,
+				17E0F80A18FDC667008E8103 /* GVMissedCall.h in Headers */,
 				17E0F7EE18FDA94D008E8103 /* GVConnection.h in Headers */,
+				17E0F7F618FDC2D7008E8103 /* GVMessage.h in Headers */,
+				17E0F81A18FDC6DD008E8103 /* GVConversation.h in Headers */,
+				17E0F7FA18FDC4A5008E8103 /* GVContact.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */,
+				17E0F80318FDC58A008E8103 /* GVPhone.h in Headers */,
+				17E0F80B18FDC667008E8103 /* GVMissedCall.h in Headers */,
 				17FEAA5918FD48C3009C6BA5 /* GVFramework.h in Headers */,
+				17E0F7FB18FDC4A5008E8103 /* GVContact.h in Headers */,
+				17E0F82318FDC756008E8103 /* GVTextMessage.h in Headers */,
+				17E0F81318FDC6A6008E8103 /* GVVoicemail.h in Headers */,
+				17E0F81B18FDC6DD008E8103 /* GVConversation.h in Headers */,
 				17E0F7EF18FDA94D008E8103 /* GVConnection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +453,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E0F7F018FDA94D008E8103 /* GVConnection.m in Sources */,
+				17E0F80418FDC58A008E8103 /* GVPhone.m in Sources */,
+				17E0F7F718FDC2D7008E8103 /* GVMessage.m in Sources */,
+				17E0F81C18FDC6DD008E8103 /* GVConversation.m in Sources */,
+				17E0F80C18FDC667008E8103 /* GVMissedCall.m in Sources */,
+				17E0F82418FDC756008E8103 /* GVTextMessage.m in Sources */,
 				17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */,
+				17E0F7FC18FDC4A5008E8103 /* GVContact.m in Sources */,
+				17E0F81418FDC6A6008E8103 /* GVVoicemail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,8 +468,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F7FE18FDC4A5008E8103 /* GVContact.m in Sources */,
+				17E0F82618FDC756008E8103 /* GVTextMessage.m in Sources */,
+				17E0F81E18FDC6DD008E8103 /* GVConversation.m in Sources */,
 				17E0F7F218FDA94D008E8103 /* GVConnection.m in Sources */,
+				17E0F81618FDC6A6008E8103 /* GVVoicemail.m in Sources */,
 				17FEAA2618FD46A0009C6BA5 /* GVFrameworkTests.m in Sources */,
+				17E0F80618FDC58A008E8103 /* GVPhone.m in Sources */,
+				17E0F80E18FDC667008E8103 /* GVMissedCall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,8 +483,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F7FD18FDC4A5008E8103 /* GVContact.m in Sources */,
+				17E0F82518FDC756008E8103 /* GVTextMessage.m in Sources */,
+				17E0F81D18FDC6DD008E8103 /* GVConversation.m in Sources */,
 				17E0F7F118FDA94D008E8103 /* GVConnection.m in Sources */,
+				17E0F81518FDC6A6008E8103 /* GVVoicemail.m in Sources */,
 				17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */,
+				17E0F80518FDC58A008E8103 /* GVPhone.m in Sources */,
+				17E0F80D18FDC667008E8103 /* GVMissedCall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +499,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E0F7F318FDA94D008E8103 /* GVConnection.m in Sources */,
+				17E0F7FF18FDC4A5008E8103 /* GVContact.m in Sources */,
+				17E0F81718FDC6A6008E8103 /* GVVoicemail.m in Sources */,
+				17E0F80718FDC58A008E8103 /* GVPhone.m in Sources */,
+				17E0F82718FDC756008E8103 /* GVTextMessage.m in Sources */,
+				17E0F80F18FDC667008E8103 /* GVMissedCall.m in Sources */,
+				17E0F81F18FDC6DD008E8103 /* GVConversation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
