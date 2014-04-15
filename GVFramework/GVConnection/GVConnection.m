@@ -68,8 +68,6 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
                 dictionary[keyValueArray.firstObject] = keyValueArray.lastObject;
         }
 
-        NSLog(@"dataString: %@", dataString);
-
         return dictionary;
     }
 }
