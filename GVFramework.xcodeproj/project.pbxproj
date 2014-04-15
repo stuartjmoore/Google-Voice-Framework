@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17E0F7EE18FDA94D008E8103 /* GVConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F7EC18FDA94D008E8103 /* GVConnection.h */; };
+		17E0F7EF18FDA94D008E8103 /* GVConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E0F7EC18FDA94D008E8103 /* GVConnection.h */; };
+		17E0F7F018FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
+		17E0F7F118FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
+		17E0F7F218FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
+		17E0F7F318FDA94D008E8103 /* GVConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E0F7ED18FDA94D008E8103 /* GVConnection.m */; };
 		17FEAA0518FD46A0009C6BA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */; };
 		17FEAA0F18FD46A0009C6BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA0D18FD46A0009C6BA5 /* InfoPlist.strings */; };
 		17FEAA1A18FD46A0009C6BA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA1918FD46A0009C6BA5 /* XCTest.framework */; };
@@ -47,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17E0F7EC18FDA94D008E8103 /* GVConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GVConnection.h; path = GVConnection/GVConnection.h; sourceTree = "<group>"; };
+		17E0F7ED18FDA94D008E8103 /* GVConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GVConnection.m; path = GVConnection/GVConnection.m; sourceTree = "<group>"; };
 		17FEAA0118FD46A0009C6BA5 /* GVFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GVFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		17FEAA0918FD46A0009C6BA5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -54,14 +62,14 @@
 		17FEAA0E18FD46A0009C6BA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17FEAA1018FD46A0009C6BA5 /* GVFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GVFramework-Prefix.pch"; sourceTree = "<group>"; };
 		17FEAA1118FD46A0009C6BA5 /* GVFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GVFramework.h; sourceTree = "<group>"; };
-		17FEAA1818FD46A0009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GVFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FEAA1818FD46A0009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GVFrameworkTests.xctest; path = "UnitTests-Mac.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA1918FD46A0009C6BA5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		17FEAA2118FD46A0009C6BA5 /* GVFrameworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GVFrameworkTests-Info.plist"; sourceTree = "<group>"; };
 		17FEAA2318FD46A0009C6BA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17FEAA2518FD46A0009C6BA5 /* GVFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GVFrameworkTests.m; sourceTree = "<group>"; };
 		17FEAA3318FD477C009C6BA5 /* libGVFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGVFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA3418FD477C009C6BA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GVFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GVFrameworkTests.xctest; path = "UnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA5C18FD49EA009C6BA5 /* GVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUser.h; sourceTree = "<group>"; };
 		17FEAA5D18FD49EA009C6BA5 /* GVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUser.m; sourceTree = "<group>"; };
 		17FEAA6218FD4E6A009C6BA5 /* Creds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Creds.plist; sourceTree = "<group>"; };
@@ -107,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17E0F7EB18FDA908008E8103 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				17E0F7EC18FDA94D008E8103 /* GVConnection.h */,
+				17E0F7ED18FDA94D008E8103 /* GVConnection.m */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
 		17FEA9F718FD46A0009C6BA5 = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +162,7 @@
 				17FEAA1118FD46A0009C6BA5 /* GVFramework.h */,
 				17FEAA5C18FD49EA009C6BA5 /* GVUser.h */,
 				17FEAA5D18FD49EA009C6BA5 /* GVUser.m */,
+				17E0F7EB18FDA908008E8103 /* Connection */,
 				17FEAA0B18FD46A0009C6BA5 /* Supporting Files */,
 			);
 			path = GVFramework;
@@ -188,6 +206,7 @@
 			files = (
 				17FEAA5E18FD49EA009C6BA5 /* GVUser.h in Headers */,
 				17FEAA5718FD4859009C6BA5 /* GVFramework.h in Headers */,
+				17E0F7EE18FDA94D008E8103 /* GVConnection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +216,7 @@
 			files = (
 				17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */,
 				17FEAA5918FD48C3009C6BA5 /* GVFramework.h in Headers */,
+				17E0F7EF18FDA94D008E8103 /* GVConnection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F7F018FDA94D008E8103 /* GVConnection.m in Sources */,
 				17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F7F218FDA94D008E8103 /* GVConnection.m in Sources */,
 				17FEAA2618FD46A0009C6BA5 /* GVFrameworkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F7F118FDA94D008E8103 /* GVConnection.m in Sources */,
 				17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E0F7F318FDA94D008E8103 /* GVConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +678,7 @@
 				17FEAA2B18FD46A0009C6BA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17FEAA2C18FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "UnitTests-Mac" */ = {
 			isa = XCConfigurationList;
@@ -662,6 +687,7 @@
 				17FEAA2E18FD46A0009C6BA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17FEAA5118FD477D009C6BA5 /* Build configuration list for PBXNativeTarget "libGVFramework.a" */ = {
 			isa = XCConfigurationList;
@@ -670,6 +696,7 @@
 				17FEAA5318FD477D009C6BA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17FEAA5418FD477D009C6BA5 /* Build configuration list for PBXNativeTarget "UnitTests-iOS" */ = {
 			isa = XCConfigurationList;
@@ -678,6 +705,7 @@
 				17FEAA5618FD477D009C6BA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

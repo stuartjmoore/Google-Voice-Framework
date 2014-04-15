@@ -31,13 +31,17 @@
 
 - (void)testUnreadCounts
 {
-    [self.user login];
+    if(!self.user.isLoggedIn)
+        [self.user login];
+
     [self.user unreadCounts];
 }
 
 - (void)testMessages
 {
-    [self.user login];
+    if(!self.user.isLoggedIn)
+        [self.user login];
+
     [self.user messages];
 }
 

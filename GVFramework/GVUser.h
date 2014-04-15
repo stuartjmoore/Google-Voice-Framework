@@ -12,7 +12,8 @@
 
 @property (nonatomic, strong) NSString *username, *password;
 
-- (BOOL)login;
+- (void)login;
+- (BOOL)isLoggedIn;
 
 - (void)unreadCounts;
 - (void)messages;
