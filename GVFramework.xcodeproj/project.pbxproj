@@ -167,6 +167,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1778FB1818FDD64900AE2413 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				17E0F7F418FDC2D7008E8103 /* GVMessage.h */,
+				17E0F7F518FDC2D7008E8103 /* GVMessage.m */,
+				17E0F80818FDC667008E8103 /* GVMissedCall.h */,
+				17E0F80918FDC667008E8103 /* GVMissedCall.m */,
+				17E0F81018FDC6A6008E8103 /* GVVoicemail.h */,
+				17E0F81118FDC6A6008E8103 /* GVVoicemail.m */,
+				17E0F81818FDC6DD008E8103 /* GVConversation.h */,
+				17E0F81918FDC6DD008E8103 /* GVConversation.m */,
+				17E0F82018FDC756008E8103 /* GVTextMessage.h */,
+				17E0F82118FDC756008E8103 /* GVTextMessage.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		1778FB1918FDD65500AE2413 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				17E0F7F818FDC4A5008E8103 /* GVContact.h */,
+				17E0F7F918FDC4A5008E8103 /* GVContact.m */,
+				17E0F80018FDC58A008E8103 /* GVPhone.h */,
+				17E0F80118FDC58A008E8103 /* GVPhone.m */,
+			);
+			name = Contacts;
+			sourceTree = "<group>";
+		};
+		1778FB1A18FDD66000AE2413 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1778FB1918FDD65500AE2413 /* Contacts */,
+				1778FB1818FDD64900AE2413 /* Messages */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		17E0F7EB18FDA908008E8103 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,20 +251,7 @@
 				17FEAA1118FD46A0009C6BA5 /* GVFramework.h */,
 				17FEAA5C18FD49EA009C6BA5 /* GVUser.h */,
 				17FEAA5D18FD49EA009C6BA5 /* GVUser.m */,
-				17E0F7F818FDC4A5008E8103 /* GVContact.h */,
-				17E0F7F918FDC4A5008E8103 /* GVContact.m */,
-				17E0F80018FDC58A008E8103 /* GVPhone.h */,
-				17E0F80118FDC58A008E8103 /* GVPhone.m */,
-				17E0F7F418FDC2D7008E8103 /* GVMessage.h */,
-				17E0F7F518FDC2D7008E8103 /* GVMessage.m */,
-				17E0F80818FDC667008E8103 /* GVMissedCall.h */,
-				17E0F80918FDC667008E8103 /* GVMissedCall.m */,
-				17E0F81018FDC6A6008E8103 /* GVVoicemail.h */,
-				17E0F81118FDC6A6008E8103 /* GVVoicemail.m */,
-				17E0F81818FDC6DD008E8103 /* GVConversation.h */,
-				17E0F81918FDC6DD008E8103 /* GVConversation.m */,
-				17E0F82018FDC756008E8103 /* GVTextMessage.h */,
-				17E0F82118FDC756008E8103 /* GVTextMessage.m */,
+				1778FB1A18FDD66000AE2413 /* Models */,
 				17E0F7EB18FDA908008E8103 /* Connection */,
 				17FEAA0B18FD46A0009C6BA5 /* Supporting Files */,
 			);
