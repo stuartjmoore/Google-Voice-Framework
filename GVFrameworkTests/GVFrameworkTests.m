@@ -18,6 +18,14 @@
 - (void)setUp
 {
     [super setUp];
+
+    NSString *credsFilepath = [[NSBundle bundleForClass:self.class] pathForResource:@"Creds" ofType:@"plist"];
+    NSDictionary *creds = [NSDictionary dictionaryWithContentsOfFile:credsFilepath];
+
+    GVUser *user = [GVUser new];
+    user.username = creds[@"username"];
+    user.password = creds[@"password"];
+    [user login];
 }
 
 - (void)testExample

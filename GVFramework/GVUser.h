@@ -10,4 +10,8 @@
 
 @interface GVUser : NSObject
 
+@property (nonatomic, strong) NSString *username, *password;
+
+- (BOOL)login;
+
 @end

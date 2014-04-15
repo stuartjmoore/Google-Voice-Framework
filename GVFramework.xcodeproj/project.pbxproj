@@ -25,6 +25,8 @@
 		17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GVUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GVUser.m */; };
 		17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GVUser.m */; };
+		17FEAA6318FD4E6A009C6BA5 /* Creds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA6218FD4E6A009C6BA5 /* Creds.plist */; };
+		17FEAA6418FD4E6A009C6BA5 /* Creds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA6218FD4E6A009C6BA5 /* Creds.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GVFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA5C18FD49EA009C6BA5 /* GVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUser.h; sourceTree = "<group>"; };
 		17FEAA5D18FD49EA009C6BA5 /* GVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUser.m; sourceTree = "<group>"; };
+		17FEAA6218FD4E6A009C6BA5 /* Creds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Creds.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,7 @@
 			children = (
 				17FEAA2118FD46A0009C6BA5 /* GVFrameworkTests-Info.plist */,
 				17FEAA2218FD46A0009C6BA5 /* InfoPlist.strings */,
+				17FEAA6218FD4E6A009C6BA5 /* Creds.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -321,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FEAA6318FD4E6A009C6BA5 /* Creds.plist in Resources */,
 				17FEAA2418FD46A0009C6BA5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FEAA6418FD4E6A009C6BA5 /* Creds.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
