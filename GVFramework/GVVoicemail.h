@@ -13,6 +13,4 @@
 @property (nonatomic) NSInteger duration;
 @property (nonatomic, strong) NSURL *mp3URL, *oggURL;
 
-@property (nonatomic) BOOL hasTranscript;
-
 @end
