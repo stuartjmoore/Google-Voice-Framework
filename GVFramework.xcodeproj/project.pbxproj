@@ -9,12 +9,22 @@
 /* Begin PBXBuildFile section */
 		17FEAA0518FD46A0009C6BA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */; };
 		17FEAA0F18FD46A0009C6BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA0D18FD46A0009C6BA5 /* InfoPlist.strings */; };
-		17FEAA1318FD46A0009C6BA5 /* GVFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA1218FD46A0009C6BA5 /* GVFramework.m */; };
 		17FEAA1A18FD46A0009C6BA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA1918FD46A0009C6BA5 /* XCTest.framework */; };
 		17FEAA1B18FD46A0009C6BA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */; };
 		17FEAA1E18FD46A0009C6BA5 /* GVFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA0118FD46A0009C6BA5 /* GVFramework.framework */; };
 		17FEAA2418FD46A0009C6BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA2218FD46A0009C6BA5 /* InfoPlist.strings */; };
 		17FEAA2618FD46A0009C6BA5 /* GVFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA2518FD46A0009C6BA5 /* GVFrameworkTests.m */; };
+		17FEAA3518FD477C009C6BA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA3418FD477C009C6BA5 /* Foundation.framework */; };
+		17FEAA4218FD477D009C6BA5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA1918FD46A0009C6BA5 /* XCTest.framework */; };
+		17FEAA4318FD477D009C6BA5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA3418FD477C009C6BA5 /* Foundation.framework */; };
+		17FEAA4818FD477D009C6BA5 /* libGVFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FEAA3318FD477C009C6BA5 /* libGVFramework.a */; };
+		17FEAA5718FD4859009C6BA5 /* GVFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA1118FD46A0009C6BA5 /* GVFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17FEAA5918FD48C3009C6BA5 /* GVFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA1118FD46A0009C6BA5 /* GVFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17FEAA5B18FD491D009C6BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA0D18FD46A0009C6BA5 /* InfoPlist.strings */; };
+		17FEAA5E18FD49EA009C6BA5 /* GVUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GVUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GVUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GVUser.m */; };
+		17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GVUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,24 +35,33 @@
 			remoteGlobalIDString = 17FEAA0018FD46A0009C6BA5;
 			remoteInfo = GVFramework;
 		};
+		17FEAA4618FD477D009C6BA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17FEA9F818FD46A0009C6BA5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17FEAA3218FD477C009C6BA5;
+			remoteInfo = GVFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		17FEAA0118FD46A0009C6BA5 /* GVFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GVFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		17FEAA0718FD46A0009C6BA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		17FEAA0818FD46A0009C6BA5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17FEAA0918FD46A0009C6BA5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		17FEAA0C18FD46A0009C6BA5 /* GVFramework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GVFramework-Info.plist"; sourceTree = "<group>"; };
 		17FEAA0E18FD46A0009C6BA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17FEAA1018FD46A0009C6BA5 /* GVFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GVFramework-Prefix.pch"; sourceTree = "<group>"; };
 		17FEAA1118FD46A0009C6BA5 /* GVFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GVFramework.h; sourceTree = "<group>"; };
-		17FEAA1218FD46A0009C6BA5 /* GVFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GVFramework.m; sourceTree = "<group>"; };
 		17FEAA1818FD46A0009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GVFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA1918FD46A0009C6BA5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		17FEAA2118FD46A0009C6BA5 /* GVFrameworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GVFrameworkTests-Info.plist"; sourceTree = "<group>"; };
 		17FEAA2318FD46A0009C6BA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17FEAA2518FD46A0009C6BA5 /* GVFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GVFrameworkTests.m; sourceTree = "<group>"; };
+		17FEAA3318FD477C009C6BA5 /* libGVFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGVFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FEAA3418FD477C009C6BA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GVFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FEAA5C18FD49EA009C6BA5 /* GVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUser.h; sourceTree = "<group>"; };
+		17FEAA5D18FD49EA009C6BA5 /* GVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +83,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17FEAA3018FD477C009C6BA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FEAA3518FD477C009C6BA5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17FEAA3E18FD477C009C6BA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FEAA4218FD477D009C6BA5 /* XCTest.framework in Frameworks */,
+				17FEAA4818FD477D009C6BA5 /* libGVFramework.a in Frameworks */,
+				17FEAA4318FD477D009C6BA5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +119,8 @@
 			children = (
 				17FEAA0118FD46A0009C6BA5 /* GVFramework.framework */,
 				17FEAA1818FD46A0009C6BA5 /* GVFrameworkTests.xctest */,
+				17FEAA3318FD477C009C6BA5 /* libGVFramework.a */,
+				17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,26 +130,18 @@
 			children = (
 				17FEAA0418FD46A0009C6BA5 /* Cocoa.framework */,
 				17FEAA1918FD46A0009C6BA5 /* XCTest.framework */,
-				17FEAA0618FD46A0009C6BA5 /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		17FEAA0618FD46A0009C6BA5 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				17FEAA0718FD46A0009C6BA5 /* Foundation.framework */,
-				17FEAA0818FD46A0009C6BA5 /* CoreData.framework */,
+				17FEAA3418FD477C009C6BA5 /* Foundation.framework */,
 				17FEAA0918FD46A0009C6BA5 /* AppKit.framework */,
 			);
-			name = "Other Frameworks";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		17FEAA0A18FD46A0009C6BA5 /* GVFramework */ = {
 			isa = PBXGroup;
 			children = (
 				17FEAA1118FD46A0009C6BA5 /* GVFramework.h */,
-				17FEAA1218FD46A0009C6BA5 /* GVFramework.m */,
+				17FEAA5C18FD49EA009C6BA5 /* GVUser.h */,
+				17FEAA5D18FD49EA009C6BA5 /* GVUser.m */,
 				17FEAA0B18FD46A0009C6BA5 /* Supporting Files */,
 			);
 			path = GVFramework;
@@ -151,15 +182,26 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17FEAA5E18FD49EA009C6BA5 /* GVUser.h in Headers */,
+				17FEAA5718FD4859009C6BA5 /* GVFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17FEAA5818FD48BF009C6BA5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */,
+				17FEAA5918FD48C3009C6BA5 /* GVFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		17FEAA0018FD46A0009C6BA5 /* GVFramework */ = {
+		17FEAA0018FD46A0009C6BA5 /* GVFramework.framework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17FEAA2918FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "GVFramework" */;
+			buildConfigurationList = 17FEAA2918FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "GVFramework.framework" */;
 			buildPhases = (
 				17FEA9FC18FD46A0009C6BA5 /* Sources */,
 				17FEA9FD18FD46A0009C6BA5 /* Frameworks */,
@@ -170,14 +212,14 @@
 			);
 			dependencies = (
 			);
-			name = GVFramework;
+			name = GVFramework.framework;
 			productName = GVFramework;
 			productReference = 17FEAA0118FD46A0009C6BA5 /* GVFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		17FEAA1718FD46A0009C6BA5 /* GVFrameworkTests */ = {
+		17FEAA1718FD46A0009C6BA5 /* UnitTests-Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17FEAA2C18FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "GVFrameworkTests" */;
+			buildConfigurationList = 17FEAA2C18FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "UnitTests-Mac" */;
 			buildPhases = (
 				17FEAA1418FD46A0009C6BA5 /* Sources */,
 				17FEAA1518FD46A0009C6BA5 /* Frameworks */,
@@ -188,9 +230,45 @@
 			dependencies = (
 				17FEAA1D18FD46A0009C6BA5 /* PBXTargetDependency */,
 			);
-			name = GVFrameworkTests;
+			name = "UnitTests-Mac";
 			productName = GVFrameworkTests;
 			productReference = 17FEAA1818FD46A0009C6BA5 /* GVFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		17FEAA3218FD477C009C6BA5 /* libGVFramework.a */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17FEAA5118FD477D009C6BA5 /* Build configuration list for PBXNativeTarget "libGVFramework.a" */;
+			buildPhases = (
+				17FEAA2F18FD477C009C6BA5 /* Sources */,
+				17FEAA3018FD477C009C6BA5 /* Frameworks */,
+				17FEAA5818FD48BF009C6BA5 /* Headers */,
+				17FEAA5A18FD4918009C6BA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libGVFramework.a;
+			productName = GVFramework;
+			productReference = 17FEAA3318FD477C009C6BA5 /* libGVFramework.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		17FEAA4018FD477C009C6BA5 /* UnitTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17FEAA5418FD477D009C6BA5 /* Build configuration list for PBXNativeTarget "UnitTests-iOS" */;
+			buildPhases = (
+				17FEAA3D18FD477C009C6BA5 /* Sources */,
+				17FEAA3E18FD477C009C6BA5 /* Frameworks */,
+				17FEAA3F18FD477C009C6BA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17FEAA4718FD477D009C6BA5 /* PBXTargetDependency */,
+			);
+			name = "UnitTests-iOS";
+			productName = GVFrameworkTests;
+			productReference = 17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -203,6 +281,9 @@
 				ORGANIZATIONNAME = "Stuart J. Moore";
 				TargetAttributes = {
 					17FEAA1718FD46A0009C6BA5 = {
+						TestTargetID = 17FEAA0018FD46A0009C6BA5;
+					};
+					17FEAA4018FD477C009C6BA5 = {
 						TestTargetID = 17FEAA0018FD46A0009C6BA5;
 					};
 				};
@@ -219,8 +300,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				17FEAA0018FD46A0009C6BA5 /* GVFramework */,
-				17FEAA1718FD46A0009C6BA5 /* GVFrameworkTests */,
+				17FEAA0018FD46A0009C6BA5 /* GVFramework.framework */,
+				17FEAA3218FD477C009C6BA5 /* libGVFramework.a */,
+				17FEAA1718FD46A0009C6BA5 /* UnitTests-Mac */,
+				17FEAA4018FD477C009C6BA5 /* UnitTests-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +325,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17FEAA3F18FD477C009C6BA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17FEAA5A18FD4918009C6BA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FEAA5B18FD491D009C6BA5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -249,7 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17FEAA1318FD46A0009C6BA5 /* GVFramework.m in Sources */,
+				17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,13 +359,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		17FEAA2F18FD477C009C6BA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		17FEAA3D18FD477C009C6BA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		17FEAA1D18FD46A0009C6BA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 17FEAA0018FD46A0009C6BA5 /* GVFramework */;
+			target = 17FEAA0018FD46A0009C6BA5 /* GVFramework.framework */;
 			targetProxy = 17FEAA1C18FD46A0009C6BA5 /* PBXContainerItemProxy */;
+		};
+		17FEAA4718FD477D009C6BA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 17FEAA3218FD477C009C6BA5 /* libGVFramework.a */;
+			targetProxy = 17FEAA4618FD477D009C6BA5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -371,7 +489,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GVFramework/GVFramework-Prefix.pch";
 				INFOPLIST_FILE = "GVFramework/GVFramework-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GVFramework;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -386,7 +504,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GVFramework/GVFramework-Prefix.pch";
 				INFOPLIST_FILE = "GVFramework/GVFramework-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GVFramework;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -431,6 +549,86 @@
 			};
 			name = Release;
 		};
+		17FEAA5218FD477D009C6BA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/GVFramework.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GVFramework/GVFramework-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = GVFramework;
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		17FEAA5318FD477D009C6BA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/GVFramework.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GVFramework/GVFramework-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = GVFramework;
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17FEAA5518FD477D009C6BA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GVFramework.framework/Versions/A/GVFramework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GVFramework/GVFramework-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GVFrameworkTests/GVFrameworkTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		17FEAA5618FD477D009C6BA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GVFramework.framework/Versions/A/GVFramework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GVFramework/GVFramework-Prefix.pch";
+				INFOPLIST_FILE = "GVFrameworkTests/GVFrameworkTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -443,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		17FEAA2918FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "GVFramework" */ = {
+		17FEAA2918FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "GVFramework.framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17FEAA2A18FD46A0009C6BA5 /* Debug */,
@@ -451,11 +649,27 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		17FEAA2C18FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "GVFrameworkTests" */ = {
+		17FEAA2C18FD46A0009C6BA5 /* Build configuration list for PBXNativeTarget "UnitTests-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17FEAA2D18FD46A0009C6BA5 /* Debug */,
 				17FEAA2E18FD46A0009C6BA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		17FEAA5118FD477D009C6BA5 /* Build configuration list for PBXNativeTarget "libGVFramework.a" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17FEAA5218FD477D009C6BA5 /* Debug */,
+				17FEAA5318FD477D009C6BA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		17FEAA5418FD477D009C6BA5 /* Build configuration list for PBXNativeTarget "UnitTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17FEAA5518FD477D009C6BA5 /* Debug */,
+				17FEAA5618FD477D009C6BA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

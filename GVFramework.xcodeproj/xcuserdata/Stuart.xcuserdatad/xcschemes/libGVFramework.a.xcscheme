@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17FEAA0018FD46A0009C6BA5"
-               BuildableName = "GVFramework.framework"
-               BlueprintName = "GVFramework"
+               BlueprintIdentifier = "17FEAA3218FD477C009C6BA5"
+               BuildableName = "libGVFramework.a"
+               BlueprintName = "libGVFramework.a"
                ReferencedContainer = "container:GVFramework.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17FEAA1718FD46A0009C6BA5"
+               BlueprintIdentifier = "17FEAA4018FD477C009C6BA5"
                BuildableName = "GVFrameworkTests.xctest"
-               BlueprintName = "GVFrameworkTests"
+               BlueprintName = "UnitTests-iOS"
                ReferencedContainer = "container:GVFramework.xcodeproj">
             </BuildableReference>
          </TestableReference>

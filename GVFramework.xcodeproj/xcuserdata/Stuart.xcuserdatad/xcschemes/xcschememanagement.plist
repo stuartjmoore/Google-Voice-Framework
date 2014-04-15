@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GVFramework.xcscheme</key>
+		<key>GVFramework.framework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>libGVFramework.a.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>17FEAA1718FD46A0009C6BA5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17FEAA3218FD477C009C6BA5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17FEAA4018FD477C009C6BA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
