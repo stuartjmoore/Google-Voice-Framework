@@ -10,7 +10,7 @@
 
 @interface GVUser ()
 
-@property (nonatomic, strong) NSString *auth, *sid, *lsid, *rnr_se;
+@property (nonatomic, strong) NSString *auth, *sid, *lsid, *r, *rnr_se;
 
 @end
 
@@ -74,6 +74,67 @@
     }
 
     return YES;
+}
+
+- (void)unreadCounts {
+    NSURL *url = [NSURL URLWithString:@"https://www.google.com:443/voice/b/0/request/unread/"];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setAllHTTPHeaderFields:@{
+        @"User-Agent" : @"Mozilla/5.0",
+        @"Authorization" : [NSString stringWithFormat:@"GoogleLogin %@", self.auth]
+    }];
+
+    NSURLResponse *response;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if(error) {
+        NSLog(@"error: %@", error);
+        return;
+    } else {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+
+        if(error) {
+            NSLog(@"error: %@", error);
+            return;
+        }
+
+        self.r = dictionary[@"r"];
+
+        NSLog(@"dictionary: %@", dictionary);
+    }
+}
+
+- (void)messages {
+    NSURL *url = [NSURL URLWithString:@"https://www.google.com:443/voice/b/0/request/messages/?page="];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setAllHTTPHeaderFields:@{
+        @"User-Agent" : @"Mozilla/5.0",
+        @"Authorization" : [NSString stringWithFormat:@"GoogleLogin %@", self.auth]
+    }];
+
+    NSURLResponse *response;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+    if(error) {
+        NSLog(@"error: %@", error);
+        return;
+    } else {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+
+        if(error) {
+            NSLog(@"error: %@", error);
+            return;
+        }
+        
+        self.r = dictionary[@"r"];
+        
+        NSLog(@"dictionary: %@", dictionary);
+    }
+
 }
 
 @end

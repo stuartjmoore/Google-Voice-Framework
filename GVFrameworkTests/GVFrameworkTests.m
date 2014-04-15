@@ -26,6 +26,8 @@
     user.username = creds[@"username"];
     user.password = creds[@"password"];
     [user login];
+//    [user unreadCounts];
+    [user messages];
 }
 
 - (void)testExample

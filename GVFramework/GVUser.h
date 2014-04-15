@@ -14,4 +14,7 @@
 
 - (BOOL)login;
 
+- (void)unreadCounts;
+- (void)messages;
+
 @end
