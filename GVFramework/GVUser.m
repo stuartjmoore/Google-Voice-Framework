@@ -8,9 +8,28 @@
 
 #import "GVUser.h"
 
+NSString *const kGVScheme = @"https";
+NSString *const kGVHost = @"www.google.com";
+NSUInteger const kGVPort = 443;
+
+NSString *const kGVHTTPMethod = @"POST";
+NSString *const kGVHTTPHeaderUserAgent = @"Mozilla/5.0";
+NSString *const kGVHTTPHeaderAuthorizationPrefix = @"GoogleLogin ";
+NSString *const kGVHTTPHeaderContentType = @"application/x-www-form-urlencoded";
+
+NSString *const kGVLoginPath = @"accounts/ClientLogin";
+NSString *const kGVLoginService = @"grandcentral";
+NSString *const kGVLoginAccountType = @"GOOGLE";
+
+NSString *const kGVRequestPath = @"voice/b/0/request";
+NSString *const kGVRequestUnreadCountsPath = @"unread";
+NSString *const kGVRequestMessagesPath = @"messages/?page=";
+
 @interface GVUser ()
 
-@property (nonatomic, strong) NSString *auth, *sid, *lsid, *r, *rnr_se;
+@property (nonatomic, strong) NSString *auth, *sid, *lsid, *r;
+
+- (NSDictionary*)requestJSONForPath:(NSString*)path;
 
 @end
 
@@ -18,37 +37,30 @@
 
 @implementation GVUser
 
-- (instancetype)init
-{
-    if (self = [super init]) {
-    }
-
-    return self;
-}
-
 - (BOOL)login
 {
-    NSString *postString = [NSString stringWithFormat:@"service=grandcentral&Email=%@&Passwd=%@&accountType=GOOGLE",
-                            self.username,
-                            self.password];
+    NSString *postString = [NSString stringWithFormat:@"service=%@&Email=%@&Passwd=%@&accountType=%@",
+                            kGVLoginService, self.username, self.password, kGVLoginAccountType];
+
     NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
 
-    NSURL *url = [NSURL URLWithString:@"https://www.google.com:443/accounts/ClientLogin"];
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@:%zd/%@", kGVScheme, kGVHost, kGVPort, kGVLoginPath];
+    NSURL *url = [NSURL URLWithString:urlString];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:kGVHTTPMethod];
     [request setHTTPBody:postData];
     [request setAllHTTPHeaderFields:@{
-        @"User-Agent" : @"Mozilla/5.0",
-        @"Authorization" : @"GoogleLogin ",
-        @"Content-Type" : @"application/x-www-form-urlencoded"
+        @"User-Agent"    : kGVHTTPHeaderUserAgent,
+        @"Authorization" : kGVHTTPHeaderAuthorizationPrefix,
+        @"Content-Type"  : kGVHTTPHeaderContentType
     }];
 
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 
-    if(error) {
+    if(error || !data) {
         NSLog(@"error: %@", error);
     } else {
         NSString *dataString = [NSString stringWithUTF8String:data.bytes];
@@ -68,8 +80,6 @@
         }
 
         NSLog(@"dataString: %@", dataString);
-        NSLog(@"sid: %@", self.sid);
-        NSLog(@"lsid: %@", self.lsid);
         NSLog(@"auth: %@", self.auth);
     }
 
@@ -77,64 +87,50 @@
 }
 
 - (void)unreadCounts {
-    NSURL *url = [NSURL URLWithString:@"https://www.google.com:443/voice/b/0/request/unread/"];
+    NSDictionary *dictionary = [self requestJSONForPath:kGVRequestUnreadCountsPath];
+    self.r = dictionary[@"r"];
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request setAllHTTPHeaderFields:@{
-        @"User-Agent" : @"Mozilla/5.0",
-        @"Authorization" : [NSString stringWithFormat:@"GoogleLogin %@", self.auth]
-    }];
-
-    NSURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    if(error) {
-        NSLog(@"error: %@", error);
-        return;
-    } else {
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-
-        if(error) {
-            NSLog(@"error: %@", error);
-            return;
-        }
-
-        self.r = dictionary[@"r"];
-
-        NSLog(@"dictionary: %@", dictionary);
-    }
+    NSLog(@"dictionary: %@", dictionary);
 }
 
 - (void)messages {
-    NSURL *url = [NSURL URLWithString:@"https://www.google.com:443/voice/b/0/request/messages/?page="];
+    NSDictionary *dictionary = [self requestJSONForPath:kGVRequestMessagesPath];
+    self.r = dictionary[@"r"];
+
+    NSLog(@"dictionary: %@", dictionary);
+}
+
+- (NSDictionary*)requestJSONForPath:(NSString*)path {
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@:%zd/%@/%@", kGVScheme, kGVHost, kGVPort, kGVRequestPath, path];
+    NSURL *url = [NSURL URLWithString:urlString];
 
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setAllHTTPHeaderFields:@{
-        @"User-Agent" : @"Mozilla/5.0",
-        @"Authorization" : [NSString stringWithFormat:@"GoogleLogin %@", self.auth]
+        @"User-Agent" : kGVHTTPHeaderUserAgent,
+        @"Authorization" : [kGVHTTPHeaderAuthorizationPrefix stringByAppendingString:self.auth]
     }];
 
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 
-    if(error) {
+    NSLog(@"request: %@", request);
+
+    if(error || !data) {
         NSLog(@"error: %@", error);
-        return;
+        return nil;
     } else {
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
 
-        if(error) {
+        if(error || !dictionary) {
             NSLog(@"error: %@", error);
-            return;
+            return nil;
         }
-        
-        self.r = dictionary[@"r"];
-        
-        NSLog(@"dictionary: %@", dictionary);
+
+        return dictionary;
     }
 
+    return nil;
 }
 
 @end
