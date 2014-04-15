@@ -17,4 +17,26 @@
     return self;
 }
 
+- (BOOL)isEqual:(id)object {
+    if (self == object)
+        return YES;
+
+    if (![object isKindOfClass:[GVMessage class]])
+        return NO;
+
+    return [self isEqualToMessage:(GVMessage*)object];
+}
+
+- (BOOL)isEqualToMessage:(GVMessage*)object {
+    return [self.identifier isEqualToString:object.identifier];
+}
+
+- (NSUInteger)hash {
+    return self.identifier.hash;
+}
+
+- (NSString*)description {
+    return super.description;
+}
+
 @end
