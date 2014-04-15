@@ -15,7 +15,7 @@
 - (void)login;
 - (BOOL)isLoggedIn;
 
-- (void)unreadCounts;
-- (void)messages;
+- (void)updateUnreadCounts;
+- (void)updateMessages;
 
 @end

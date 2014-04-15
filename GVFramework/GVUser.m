@@ -32,14 +32,14 @@
     return !!self.auth;
 }
 
-- (void)unreadCounts {
+- (void)updateUnreadCounts {
     NSDictionary *dictionary = [GVConnection requestJSONForUnreadCountsWithAuth:self.auth];
     self.r = dictionary[@"r"];
 
     NSLog(@"unreadCounts: %@", dictionary);
 }
 
-- (void)messages {
+- (void)updateMessages {
     NSDictionary *dictionary = [GVConnection requestJSONForMessagesWithAuth:self.auth];
     self.r = dictionary[@"r"];
 

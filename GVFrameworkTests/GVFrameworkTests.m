@@ -34,7 +34,7 @@
     if(!self.user.isLoggedIn)
         [self.user login];
 
-    [self.user unreadCounts];
+    [self.user updateUnreadCounts];
 }
 
 - (void)testMessages
@@ -42,7 +42,7 @@
     if(!self.user.isLoggedIn)
         [self.user login];
 
-    [self.user messages];
+    [self.user updateMessages];
 }
 
 - (void)tearDown
