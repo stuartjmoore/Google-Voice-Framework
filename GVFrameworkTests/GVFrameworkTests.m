@@ -31,17 +31,11 @@
 
 - (void)testUnreadCounts
 {
-    if(!self.googleVoice.isLoggedIn)
-        [self.googleVoice login];
-
     [self.googleVoice updateUnreadCounts];
 }
 
 - (void)testMessages
 {
-    if(!self.googleVoice.isLoggedIn)
-        [self.googleVoice login];
-
     [self.googleVoice updateMessages];
 }
 

@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSString *auth, *sid, *lsid, *r;
 @property (nonatomic, strong) NSOrderedSet *inbox;
 
+- (GVMessage*)messageWithId:(NSString*)identifier;
+
 @end
 
 #pragma mark -
@@ -32,6 +34,8 @@
     return self;
 }
 
+#pragma mark - Login
+
 - (void)login {
     NSDictionary *dictionary = [GVConnection loginWithUsername:self.username andPassword:self.password];
     self.sid = dictionary[@"SID"];
@@ -43,12 +47,20 @@
     return !!self.auth;
 }
 
+#pragma mark - Update
+
 - (void)updateUnreadCounts {
+    if(!self.isLoggedIn)
+        [self login];
+
     NSDictionary *dictionary = [GVConnection requestJSONForUnreadCountsWithAuth:self.auth];
     self.r = dictionary[@"r"];
 }
 
 - (void)updateMessages {
+    if(!self.isLoggedIn)
+        [self login];
+
     NSDictionary *dictionary = [GVConnection requestJSONForMessagesWithAuth:self.auth];
     self.r = dictionary[@"r"];
 
@@ -131,8 +143,10 @@
 
     self.inbox = [NSOrderedSet orderedSetWithOrderedSet:messages];
 
-    NSLog(@"self.inbox: %@", self.inbox);
+    NSLog(@"inbox: %@", self.inbox);
 }
+
+#pragma mark -
 
 - (GVMessage*)messageWithId:(NSString*)identifier {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
