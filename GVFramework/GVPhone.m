@@ -10,6 +10,10 @@
 
 @implementation GVPhone
 
+- (NSURL*)callURL {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://plus.google.com/hangouts/_/?hip=%@", self.number]];
+}
+
 - (BOOL)isEqual:(id)object {
     if (self == object)
         return YES;
