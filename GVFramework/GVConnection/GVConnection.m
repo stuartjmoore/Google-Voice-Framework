@@ -25,9 +25,15 @@ NSString *const kGVRequestPath = @"voice/b/0/request";
 NSString *const kGVRequestUnreadCountsPath = @"unread";
 NSString *const kGVRequestMessagesPath = @"messages/?page=";
 
+@interface GVConnection ()
+
++ (NSDictionary*)requestJSONForPath:(NSString*)path withAuth:(NSString*)auth error:(NSError**)error;
+
+@end
+
 @implementation GVConnection
 
-+ (NSDictionary*)loginWithUsername:(NSString*)username andPassword:(NSString*)password {
++ (NSDictionary*)loginWithUsername:(NSString*)username andPassword:(NSString*)password error:(NSError**)error {
     if(!username || !password)
         return nil;
 
@@ -49,11 +55,10 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
     }];
 
     NSHTTPURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
 
     if(error || !data || response.statusCode != 200) {
-        NSLog(@"error: %@", error);
+        NSLog(@"error: %@", *error);
         return nil;
     } else {
         NSMutableDictionary *dictionary = [NSMutableDictionary new];
@@ -74,15 +79,15 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
 
 #pragma mark -
 
-+ (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth {
-    return [GVConnection requestJSONForPath:kGVRequestUnreadCountsPath withAuth:auth];
++ (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth error:(NSError**)error {
+    return [GVConnection requestJSONForPath:kGVRequestUnreadCountsPath withAuth:auth error:error];
 }
 
-+ (NSDictionary*)requestJSONForMessagesWithAuth:(NSString*)auth {
-    return [GVConnection requestJSONForPath:kGVRequestMessagesPath withAuth:auth];
++ (NSDictionary*)requestJSONForMessagesWithAuth:(NSString*)auth error:(NSError**)error {
+    return [GVConnection requestJSONForPath:kGVRequestMessagesPath withAuth:auth error:error];
 }
 
-+ (NSDictionary*)requestJSONForPath:(NSString*)path withAuth:(NSString*)auth {
++ (NSDictionary*)requestJSONForPath:(NSString*)path withAuth:(NSString*)auth error:(NSError**)error {
     if(!auth)
         return nil;
 
@@ -96,17 +101,16 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
     }];
 
     NSHTTPURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
 
     if(error || !data || response.statusCode != 200) {
-        NSLog(@"error: %@", error);
+        NSLog(@"error: %@", *error);
         return nil;
     } else {
-        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
 
         if(error || !dictionary) {
-            NSLog(@"error: %@", error);
+            NSLog(@"error: %@", *error);
             return nil;
         }
         

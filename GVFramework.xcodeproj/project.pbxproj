@@ -251,8 +251,8 @@
 				17FEAA1118FD46A0009C6BA5 /* GVFramework.h */,
 				17FEAA5C18FD49EA009C6BA5 /* GoogleVoice.h */,
 				17FEAA5D18FD49EA009C6BA5 /* GoogleVoice.m */,
-				1778FB1A18FDD66000AE2413 /* Models */,
 				17E0F7EB18FDA908008E8103 /* Connection */,
+				1778FB1A18FDD66000AE2413 /* Models */,
 				17FEAA0B18FD46A0009C6BA5 /* Supporting Files */,
 			);
 			path = GVFramework;

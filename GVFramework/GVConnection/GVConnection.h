@@ -10,10 +10,9 @@
 
 @interface GVConnection : NSObject
 
-+ (NSDictionary*)loginWithUsername:(NSString*)username andPassword:(NSString*)password;
++ (NSDictionary*)loginWithUsername:(NSString*)username andPassword:(NSString*)password error:(NSError**)error;
 
-+ (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth;
-+ (NSDictionary*)requestJSONForMessagesWithAuth:(NSString*)auth;
-+ (NSDictionary*)requestJSONForPath:(NSString*)path withAuth:(NSString*)auth;
++ (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth error:(NSError**)error;
++ (NSDictionary*)requestJSONForMessagesWithAuth:(NSString*)auth error:(NSError**)error;
 
 @end

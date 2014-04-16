@@ -37,7 +37,14 @@
 #pragma mark - Login
 
 - (void)login {
-    NSDictionary *dictionary = [GVConnection loginWithUsername:self.username andPassword:self.password];
+    NSError *error;
+    NSDictionary *dictionary = [GVConnection loginWithUsername:self.username andPassword:self.password error:&error];
+
+    if(error) {
+        NSLog(@"error: %@", error);
+        return;
+    }
+
     self.sid = dictionary[@"SID"];
     self.lsid = dictionary[@"LSID"];
     self.auth = dictionary[@"Auth"];
@@ -53,7 +60,14 @@
     if(!self.isLoggedIn)
         [self login];
 
-    NSDictionary *dictionary = [GVConnection requestJSONForUnreadCountsWithAuth:self.auth];
+    NSError *error;
+    NSDictionary *dictionary = [GVConnection requestJSONForUnreadCountsWithAuth:self.auth error:&error];
+
+    if(error) {
+        NSLog(@"error: %@", error);
+        return;
+    }
+
     self.r = dictionary[@"r"];
 }
 
@@ -61,7 +75,14 @@
     if(!self.isLoggedIn)
         [self login];
 
-    NSDictionary *dictionary = [GVConnection requestJSONForMessagesWithAuth:self.auth];
+    NSError *error;
+    NSDictionary *dictionary = [GVConnection requestJSONForMessagesWithAuth:self.auth error:&error];
+
+    if(error) {
+        NSLog(@"error: %@", error);
+        return;
+    }
+
     self.r = dictionary[@"r"];
 
     NSArray *messageList = dictionary[@"messageList"];
