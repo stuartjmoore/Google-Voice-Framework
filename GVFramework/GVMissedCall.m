@@ -37,7 +37,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@> %@: missed call", self.date, self.contact.name];
+    return [NSString stringWithFormat:@"%@: <%@> missed call", self.contact.name, self.date];
 }
 
 @end

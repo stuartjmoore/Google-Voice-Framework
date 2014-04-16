@@ -35,7 +35,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@> %@: \"%@\" [voicemail]", self.date, self.contact.name, self.text];
+    return [NSString stringWithFormat:@"%@: <%@> “%@” [voicemail]", self.contact.name, self.date, self.text];
 }
 
 @end

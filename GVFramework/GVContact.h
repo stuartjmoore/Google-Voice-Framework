@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSString *identifier, *name;
 @property (nonatomic, strong) NSURL *photoURL;
 
-@property (nonatomic, strong) NSArray *phones, *emails;
+@property (nonatomic, strong) NSSet *phones, *emails;
+
+- (instancetype)initWithJSON:(NSDictionary*)dictionary;
 
 @end

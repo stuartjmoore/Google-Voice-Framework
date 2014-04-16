@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSOrderedSet *inbox;
 
 - (GVMessage*)messageWithId:(NSString*)identifier;
+- (GVContact*)contactWithId:(NSString*)identifier;
+- (GVContact*)contactWithId:(NSString*)identifier inSet:(NSOrderedSet*)set;
 
 @end
 
@@ -83,6 +85,8 @@
         return;
     }
 
+    NSLog(@"dictionary: %@", dictionary);
+
     self.r = dictionary[@"r"];
 
     NSArray *messageList = dictionary[@"messageList"];
@@ -117,17 +121,21 @@
         else if(type == GVMessageTypeMissedCall)
         {
             message = [self messageWithId:identifier] ?: [[GVMissedCall alloc] initWithJSON:messageDict];
-
         }
         else if(type == GVMessageTypeVoicemail)
         {
             message = [self messageWithId:identifier] ?: [[GVVoicemail alloc] initWithJSON:messageDict];
         }
 
-        [messages addObject:message];
+        NSString *phoneNumber = messageDict[@"phoneNumber"];
+        NSString *contactId = dictionary[@"contacts"][@"contactPhoneMap"][phoneNumber][@"contactId"];
 
-        NSLog(@"message: %@", message);
-        NSLog(@"-------");
+        GVContact *contact = [self contactWithId:contactId]
+                          ?: [self contactWithId:contactId inSet:messages]
+                          ?: [[GVContact alloc] initWithJSON:dictionary[@"contacts"][@"contactMap"][contactId]];
+
+        message.contact = contact;
+        [messages addObject:message];
     }
 
     [messages unionOrderedSet:self.inbox];
@@ -147,6 +155,17 @@
     NSOrderedSet *filteredOrderedSet = [self.inbox filteredOrderedSetUsingPredicate:pred];
 
     return filteredOrderedSet.set.anyObject;
+}
+
+- (GVContact*)contactWithId:(NSString*)identifier {
+    return [self contactWithId:identifier inSet:self.inbox];
+}
+
+- (GVContact*)contactWithId:(NSString*)identifier inSet:(NSOrderedSet*)set {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"contact.identifier == %@", identifier];
+    NSOrderedSet *filteredOrderedSet = [set filteredOrderedSetUsingPredicate:pred];
+
+    return [filteredOrderedSet.set.anyObject contact];
 }
 
 @end

@@ -49,7 +49,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@> %@: %@", self.date, self.contact.name, self.textMessages];
+    return [NSString stringWithFormat:@"%@: %@", self.contact.name, self.textMessages];
 }
 
 @end
