@@ -19,7 +19,20 @@
         self.spam = [dictionary[@"isSpam"] boolValue];
         self.trash = [dictionary[@"isTrash"] boolValue];
         self.starred = [dictionary[@"star"] boolValue];
-        self.textMessages = [NSOrderedSet new];
+
+        NSMutableOrderedSet *textMessages = [NSMutableOrderedSet new];
+
+        for(NSDictionary *textMessageDict in dictionary[@"children"]) {
+            GVTextMessage *textMessage = [[GVTextMessage alloc] initWithJSON:textMessageDict];
+            textMessage.conversation = self;
+            [textMessages addObject:textMessage];
+        }
+
+        [textMessages sortUsingComparator:^NSComparisonResult(GVMessage *obj1, GVMessage *obj2) {
+            return obj2.date == [obj1.date earlierDate:obj2.date];
+        }];
+
+        self.textMessages = [NSOrderedSet orderedSetWithOrderedSet:textMessages];
     }
     return self;
 }

@@ -101,22 +101,7 @@
         if(type == GVMessageTypeTextReceived || type == GVMessageTypeTextSent)
         {
             message = [self messageWithId:identifier] ?: [[GVConversation alloc] initWithJSON:messageDict];
-
-            NSArray *children = messageDict[@"children"];
-            NSMutableOrderedSet *textMessages = [NSMutableOrderedSet new];
-
-            for(NSDictionary *textMessageDict in children) {
-                GVTextMessage *textMessage = [[GVTextMessage alloc] initWithJSON:textMessageDict];
-                textMessage.conversation = (GVConversation*)message;
-                [textMessages addObject:textMessage];
-            }
-
-            [textMessages unionOrderedSet:((GVConversation*)message).textMessages];
-            [textMessages sortUsingComparator:^NSComparisonResult(GVMessage *obj1, GVMessage *obj2) {
-                return obj2.date == [obj1.date earlierDate:obj2.date];
-            }];
-
-            ((GVConversation*)message).textMessages = [NSOrderedSet orderedSetWithOrderedSet:textMessages];
+            // TODO: add text messages even if conversation exists.
         }
         else if(type == GVMessageTypeMissedCall)
         {
