@@ -10,6 +10,15 @@
 
 @implementation GVConversation
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.textMessages = [NSOrderedSet new];
+    }
+    return self;
+}
+
 - (GVMessageType)type {
     GVTextMessage *textMessage = self.textMessages.firstObject;
     return textMessage? textMessage.type : GVMessageTypeUnknown;
@@ -20,8 +29,13 @@
     return textMessage? textMessage.text : @"";
 }
 
+- (NSDate*)date {
+    GVTextMessage *textMessage = self.textMessages.firstObject;
+    return textMessage? textMessage.date : nil;
+}
+
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@> %@: %@", self.identifier, self.contact.name, self.textMessages];
+    return [NSString stringWithFormat:@"<%@> %@: %@", self.date, self.contact.name, self.textMessages];
 }
 
 @end

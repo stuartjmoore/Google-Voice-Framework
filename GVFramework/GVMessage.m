@@ -36,7 +36,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@> %@: \"%@\"", self.identifier, self.contact.name, self.text];
+    return [NSString stringWithFormat:@"<%@> %@: \"%@\"", self.date, self.contact.name, self.text];
 }
 
 @end

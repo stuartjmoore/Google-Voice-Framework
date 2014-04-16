@@ -11,6 +11,6 @@
 
 @interface GVConversation : GVMessage
 
-@property (nonatomic, strong) NSArray *textMessages;
+@property (nonatomic, strong) NSOrderedSet *textMessages;
 
 @end
