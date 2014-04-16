@@ -57,7 +57,7 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
     NSHTTPURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
 
-    if(error || !data || response.statusCode != 200) {
+    if(*error || !data || response.statusCode != 200) {
         NSLog(@"error: %@", *error);
         return nil;
     } else {
@@ -103,13 +103,13 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
     NSHTTPURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
 
-    if(error || !data || response.statusCode != 200) {
+    if(*error || !data || response.statusCode != 200) {
         NSLog(@"error: %@", *error);
         return nil;
     } else {
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
 
-        if(error || !dictionary) {
+        if(*error || !dictionary) {
             NSLog(@"error: %@", *error);
             return nil;
         }
