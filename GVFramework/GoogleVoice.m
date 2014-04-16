@@ -96,21 +96,13 @@
 
         if(type == GVMessageTypeTextReceived || type == GVMessageTypeTextSent)
         {
-            message = [self messageWithId:identifier] ?: [GVConversation new];
+            message = [self messageWithId:identifier] ?: [[GVConversation alloc] initWithJSON:messageDict];
 
             NSArray *children = messageDict[@"children"];
             NSMutableOrderedSet *textMessages = [NSMutableOrderedSet new];
 
             for(NSDictionary *textMessageDict in children) {
-                GVTextMessage *textMessage = [GVTextMessage new];
-                textMessage.identifier = textMessageDict[@"id"];
-                textMessage.text = textMessageDict[@"message"];
-                textMessage.read = [textMessageDict[@"isRead"] boolValue];
-
-                NSInteger milliseconds = [textMessageDict[@"startTime"] integerValue] ?: 0;
-                NSTimeInterval seconds = (NSTimeInterval)(milliseconds / 1000.0);
-                textMessage.date = [NSDate dateWithTimeIntervalSince1970:seconds];
-
+                GVTextMessage *textMessage = [[GVTextMessage alloc] initWithJSON:textMessageDict];
                 textMessage.conversation = (GVConversation*)message;
                 [textMessages addObject:textMessage];
             }
@@ -124,32 +116,13 @@
         }
         else if(type == GVMessageTypeMissedCall)
         {
-            message = [self messageWithId:identifier] ?: [GVMissedCall new];
-            message.read = [messageDict[@"isRead"] boolValue];
-
-            NSInteger milliseconds = [messageDict[@"startTime"] integerValue] ?: 0;
-            NSTimeInterval seconds = (NSTimeInterval)(milliseconds / 1000.0);
-            message.date = [NSDate dateWithTimeIntervalSince1970:seconds];
+            message = [self messageWithId:identifier] ?: [[GVMissedCall alloc] initWithJSON:messageDict];
 
         }
         else if(type == GVMessageTypeVoicemail)
         {
-            message = [self messageWithId:identifier] ?: [GVVoicemail new];
-            message.text = messageDict[@"messageText"];
-            message.read = [messageDict[@"isRead"] boolValue];
-            ((GVVoicemail*)message).duration = [messageDict[@"duration"] integerValue];
-
-            NSInteger milliseconds = [messageDict[@"startTime"] integerValue] ?: 0;
-            NSTimeInterval seconds = (NSTimeInterval)(milliseconds / 1000.0);
-            message.date = [NSDate dateWithTimeIntervalSince1970:seconds];
+            message = [self messageWithId:identifier] ?: [[GVVoicemail alloc] initWithJSON:messageDict];
         }
-
-        message.identifier = identifier;
-        message.note = messageDict[@"note"];
-        message.labels = messageDict[@"labels"];
-        message.spam = [messageDict[@"isSpam"] boolValue];
-        message.trash = [messageDict[@"isTrash"] boolValue];
-        message.starred = [messageDict[@"star"] boolValue];
 
         [messages addObject:message];
 

@@ -31,7 +31,7 @@
 
 - (void)testUnreadCounts
 {
-    [self.googleVoice updateUnreadCounts];
+//    [self.googleVoice updateUnreadCounts];
 }
 
 - (void)testMessages

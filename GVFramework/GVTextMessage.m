@@ -11,6 +11,19 @@
 
 @implementation GVTextMessage
 
+- (instancetype)initWithJSON:(NSDictionary*)dictionary {
+    if (self = [super init]) {
+        self.identifier = dictionary[@"id"];
+        self.text = dictionary[@"message"];
+        self.read = [dictionary[@"isRead"] boolValue];
+
+        NSInteger milliseconds = [dictionary[@"startTime"] integerValue] ?: 0;
+        NSTimeInterval seconds = (NSTimeInterval)(milliseconds / 1000.0);
+        self.date = [NSDate dateWithTimeIntervalSince1970:seconds];
+    }
+    return self;
+}
+
 - (GVContact*)contact {
     return self.conversation.contact;
 }

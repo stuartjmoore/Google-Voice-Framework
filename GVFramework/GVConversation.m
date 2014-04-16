@@ -10,6 +10,20 @@
 
 @implementation GVConversation
 
+- (instancetype)initWithJSON:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self) {
+        self.identifier = dictionary[@"id"];
+        self.note = dictionary[@"note"];
+        self.labels = dictionary[@"labels"];
+        self.spam = [dictionary[@"isSpam"] boolValue];
+        self.trash = [dictionary[@"isTrash"] boolValue];
+        self.starred = [dictionary[@"star"] boolValue];
+        self.textMessages = [NSOrderedSet new];
+    }
+    return self;
+}
+
 - (instancetype)init
 {
     self = [super init];

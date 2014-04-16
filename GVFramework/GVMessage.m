@@ -10,9 +10,9 @@
 
 @implementation GVMessage
 
-- (instancetype)init {
-    if (self = [super init]) {
-        NSAssert(YES, @"You must only implement a sublass!");
+- (instancetype)initWithJSON:(NSDictionary*)dictionary {
+    self = [super init];
+    if (self) {
     }
     return self;
 }

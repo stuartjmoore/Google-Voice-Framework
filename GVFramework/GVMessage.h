@@ -35,4 +35,6 @@ typedef NS_ENUM(NSInteger, GVMessageType) {
 @property (nonatomic, getter = isTrash) BOOL trash;
 @property (nonatomic, getter = isStarred) BOOL starred;
 
+- (instancetype)initWithJSON:(NSDictionary*)dictionary;
+
 @end
