@@ -1,19 +1,19 @@
 //
-//  GVUser.m
+//  GoogleVoice.m
 //  GVFramework
 //
 //  Created by Stuart Moore on 4/15/14.
 //  Copyright (c) 2014 Stuart J. Moore. All rights reserved.
 //
 
-#import "GVUser.h"
+#import "GoogleVoice.h"
 
 #import "GVMissedCall.h"
 #import "GVVoicemail.h"
 #import "GVConversation.h"
 #import "GVConnection.h"
 
-@interface GVUser ()
+@interface GoogleVoice ()
 
 @property (nonatomic, strong) NSString *auth, *sid, *lsid, *r;
 @property (nonatomic, strong) NSOrderedSet *inbox;
@@ -22,7 +22,7 @@
 
 #pragma mark -
 
-@implementation GVUser
+@implementation GoogleVoice
 
 - (instancetype)init {
     self = [super init];

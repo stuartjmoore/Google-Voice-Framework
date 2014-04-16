@@ -65,10 +65,10 @@
 		17FEAA5718FD4859009C6BA5 /* GVFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA1118FD46A0009C6BA5 /* GVFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17FEAA5918FD48C3009C6BA5 /* GVFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA1118FD46A0009C6BA5 /* GVFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17FEAA5B18FD491D009C6BA5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA0D18FD46A0009C6BA5 /* InfoPlist.strings */; };
-		17FEAA5E18FD49EA009C6BA5 /* GVUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GVUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GVUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GVUser.m */; };
-		17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GVUser.m */; };
+		17FEAA5E18FD49EA009C6BA5 /* GoogleVoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GoogleVoice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17FEAA5F18FD49EA009C6BA5 /* GoogleVoice.h in Headers */ = {isa = PBXBuildFile; fileRef = 17FEAA5C18FD49EA009C6BA5 /* GoogleVoice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17FEAA6018FD49EA009C6BA5 /* GoogleVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GoogleVoice.m */; };
+		17FEAA6118FD49EA009C6BA5 /* GoogleVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FEAA5D18FD49EA009C6BA5 /* GoogleVoice.m */; };
 		17FEAA6318FD4E6A009C6BA5 /* Creds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA6218FD4E6A009C6BA5 /* Creds.plist */; };
 		17FEAA6418FD4E6A009C6BA5 /* Creds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FEAA6218FD4E6A009C6BA5 /* Creds.plist */; };
 /* End PBXBuildFile section */
@@ -122,8 +122,8 @@
 		17FEAA3318FD477C009C6BA5 /* libGVFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGVFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FEAA3418FD477C009C6BA5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17FEAA4118FD477C009C6BA5 /* GVFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GVFrameworkTests.xctest; path = "UnitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		17FEAA5C18FD49EA009C6BA5 /* GVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVUser.h; sourceTree = "<group>"; };
-		17FEAA5D18FD49EA009C6BA5 /* GVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVUser.m; sourceTree = "<group>"; };
+		17FEAA5C18FD49EA009C6BA5 /* GoogleVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleVoice.h; sourceTree = "<group>"; };
+		17FEAA5D18FD49EA009C6BA5 /* GoogleVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleVoice.m; sourceTree = "<group>"; };
 		17FEAA6218FD4E6A009C6BA5 /* Creds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Creds.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,8 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				17FEAA1118FD46A0009C6BA5 /* GVFramework.h */,
-				17FEAA5C18FD49EA009C6BA5 /* GVUser.h */,
-				17FEAA5D18FD49EA009C6BA5 /* GVUser.m */,
+				17FEAA5C18FD49EA009C6BA5 /* GoogleVoice.h */,
+				17FEAA5D18FD49EA009C6BA5 /* GoogleVoice.m */,
 				1778FB1A18FDD66000AE2413 /* Models */,
 				17E0F7EB18FDA908008E8103 /* Connection */,
 				17FEAA0B18FD46A0009C6BA5 /* Supporting Files */,
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17E0F82218FDC756008E8103 /* GVTextMessage.h in Headers */,
-				17FEAA5E18FD49EA009C6BA5 /* GVUser.h in Headers */,
+				17FEAA5E18FD49EA009C6BA5 /* GoogleVoice.h in Headers */,
 				17E0F81218FDC6A6008E8103 /* GVVoicemail.h in Headers */,
 				17FEAA5718FD4859009C6BA5 /* GVFramework.h in Headers */,
 				17E0F80218FDC58A008E8103 /* GVPhone.h in Headers */,
@@ -311,7 +311,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17FEAA5F18FD49EA009C6BA5 /* GVUser.h in Headers */,
+				17FEAA5F18FD49EA009C6BA5 /* GoogleVoice.h in Headers */,
 				17E0F80318FDC58A008E8103 /* GVPhone.h in Headers */,
 				17E0F80B18FDC667008E8103 /* GVMissedCall.h in Headers */,
 				17FEAA5918FD48C3009C6BA5 /* GVFramework.h in Headers */,
@@ -482,7 +482,7 @@
 				17E0F81C18FDC6DD008E8103 /* GVConversation.m in Sources */,
 				17E0F80C18FDC667008E8103 /* GVMissedCall.m in Sources */,
 				17E0F82418FDC756008E8103 /* GVTextMessage.m in Sources */,
-				17FEAA6018FD49EA009C6BA5 /* GVUser.m in Sources */,
+				17FEAA6018FD49EA009C6BA5 /* GoogleVoice.m in Sources */,
 				17E0F7FC18FDC4A5008E8103 /* GVContact.m in Sources */,
 				17E0F81418FDC6A6008E8103 /* GVVoicemail.m in Sources */,
 			);
@@ -512,7 +512,7 @@
 				17E0F81D18FDC6DD008E8103 /* GVConversation.m in Sources */,
 				17E0F7F118FDA94D008E8103 /* GVConnection.m in Sources */,
 				17E0F81518FDC6A6008E8103 /* GVVoicemail.m in Sources */,
-				17FEAA6118FD49EA009C6BA5 /* GVUser.m in Sources */,
+				17FEAA6118FD49EA009C6BA5 /* GoogleVoice.m in Sources */,
 				17E0F80518FDC58A008E8103 /* GVPhone.m in Sources */,
 				17E0F80D18FDC667008E8103 /* GVMissedCall.m in Sources */,
 			);

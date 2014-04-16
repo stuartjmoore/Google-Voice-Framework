@@ -7,11 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import <GVFramework/GVUser.h>
+#import <GVFramework/GoogleVoice.h>
 
 @interface GVFrameworkTests : XCTestCase
 
-@property (nonatomic, strong) GVUser *user;
+@property (nonatomic, strong) GoogleVoice *googleVoice;
 
 @end
 
@@ -24,25 +24,25 @@
     NSString *credsFilepath = [[NSBundle bundleForClass:self.class] pathForResource:@"Creds" ofType:@"plist"];
     NSDictionary *creds = [NSDictionary dictionaryWithContentsOfFile:credsFilepath];
 
-    self.user = [GVUser new];
-    self.user.username = creds[@"username"];
-    self.user.password = creds[@"password"];
+    self.googleVoice = [GoogleVoice new];
+    self.googleVoice.username = creds[@"username"];
+    self.googleVoice.password = creds[@"password"];
 }
 
 - (void)testUnreadCounts
 {
-    if(!self.user.isLoggedIn)
-        [self.user login];
+    if(!self.googleVoice.isLoggedIn)
+        [self.googleVoice login];
 
-    [self.user updateUnreadCounts];
+    [self.googleVoice updateUnreadCounts];
 }
 
 - (void)testMessages
 {
-    if(!self.user.isLoggedIn)
-        [self.user login];
+    if(!self.googleVoice.isLoggedIn)
+        [self.googleVoice login];
 
-    [self.user updateMessages];
+    [self.googleVoice updateMessages];
 }
 
 - (void)tearDown

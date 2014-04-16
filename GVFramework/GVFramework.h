@@ -7,4 +7,4 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GVFramework/GVUser.h>
+#import <GVFramework/GoogleVoice.h>

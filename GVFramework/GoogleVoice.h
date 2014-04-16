@@ -1,5 +1,5 @@
 //
-//  GVUser.h
+//  GoogleVoice.h
 //  GVFramework
 //
 //  Created by Stuart Moore on 4/15/14.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GVUser : NSObject
+@interface GoogleVoice : NSObject
 
 @property (nonatomic, strong) NSString *username, *password;
 
