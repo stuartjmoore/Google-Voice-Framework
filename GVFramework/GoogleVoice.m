@@ -95,23 +95,14 @@
 
     for(NSDictionary *messageDict in messageList) {
         GVMessageType type = [messageDict[@"type"] integerValue];
-        NSString *identifier = messageDict[@"id"];
-
         GVMessage *message;
 
         if(type == GVMessageTypeTextReceived || type == GVMessageTypeTextSent)
-        {
-            message = [self messageWithId:identifier] ?: [[GVConversation alloc] initWithJSON:messageDict];
-            // TODO: add text messages even if conversation exists.
-        }
+            message = [[GVConversation alloc] initWithJSON:messageDict];
         else if(type == GVMessageTypeMissedCall)
-        {
-            message = [self messageWithId:identifier] ?: [[GVMissedCall alloc] initWithJSON:messageDict];
-        }
+            message = [[GVMissedCall alloc] initWithJSON:messageDict];
         else if(type == GVMessageTypeVoicemail)
-        {
-            message = [self messageWithId:identifier] ?: [[GVVoicemail alloc] initWithJSON:messageDict];
-        }
+            message = [[GVVoicemail alloc] initWithJSON:messageDict];
 
         NSString *phoneNumber = messageDict[@"phoneNumber"];
         NSString *contactId = dictionary[@"contacts"][@"contactPhoneMap"][phoneNumber][@"contactId"];
