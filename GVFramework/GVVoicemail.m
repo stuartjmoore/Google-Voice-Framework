@@ -8,6 +8,9 @@
 
 #import "GVVoicemail.h"
 
+#import "GVContact.h"
+#import "GVPhone.h"
+
 @implementation GVVoicemail
 
 - (instancetype)initWithJSON:(NSDictionary*)dictionary {
@@ -35,7 +38,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@: <%@> “%@” [voicemail]", self.contact.name, self.date, self.text];
+    return [NSString stringWithFormat:@"%@: <%@> “%@” [voicemail]", self.phone.contact.name, self.date, self.text];
 }
 
 @end

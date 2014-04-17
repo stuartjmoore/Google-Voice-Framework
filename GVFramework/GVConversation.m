@@ -8,6 +8,9 @@
 
 #import "GVConversation.h"
 
+#import "GVContact.h"
+#import "GVPhone.h"
+
 @implementation GVConversation
 
 - (instancetype)initWithJSON:(NSDictionary*)dictionary {
@@ -58,7 +61,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@: %@", self.contact.name, self.textMessages];
+    return [NSString stringWithFormat:@"%@: %@", self.phone.contact.name, self.textMessages];
 }
 
 @end

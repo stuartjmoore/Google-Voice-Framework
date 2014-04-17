@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class GVPhone;
+
 @interface GVContact : NSObject
 
 @property (nonatomic, strong) NSString *identifier, *name;
@@ -16,5 +18,7 @@
 @property (nonatomic, strong) NSSet *phones, *emails;
 
 - (instancetype)initWithJSON:(NSDictionary*)dictionary;
+
+- (GVPhone*)phoneWithNumber:(NSString*)number;
 
 @end

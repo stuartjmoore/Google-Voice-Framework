@@ -13,6 +13,9 @@
 #import "GVConversation.h"
 #import "GVConnection.h"
 
+#import "GVContact.h"
+#import "GVPhone.h"
+
 @interface GoogleVoice ()
 
 @property (nonatomic, strong) NSString *auth, *sid, *lsid, *r;
@@ -112,7 +115,6 @@
 
             NSString *phoneNumber = messageDict[@"phoneNumber"];
             NSString *contactId = dictionary[@"contacts"][@"contactPhoneMap"][phoneNumber][@"contactId"];
-
             GVContact *contact = [self contactWithId:contactId];
 
             if(!contact) {
@@ -120,7 +122,7 @@
                 self.addressBook = [self.addressBook setByAddingObject:contact];
             }
 
-            message.contact = contact;
+            message.phone = [contact phoneWithNumber:phoneNumber];
             [newInbox addObject:message];
         }
     } while ([dictionary[@"totalSize"] integerValue] - pageNum * [dictionary[@"resultsPerPage"] integerValue] > 0);

@@ -8,6 +8,9 @@
 
 #import "GVMissedCall.h"
 
+#import "GVContact.h"
+#import "GVPhone.h"
+
 @implementation GVMissedCall
 
 - (instancetype)initWithJSON:(NSDictionary*)dictionary {
@@ -37,7 +40,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@: <%@> missed call", self.contact.name, self.date];
+    return [NSString stringWithFormat:@"%@: <%@> missed call", self.phone.contact.name, self.date];
 }
 
 @end

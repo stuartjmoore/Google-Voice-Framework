@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         self.identifier = dictionary[@"contactId"];
-        self.name = dictionary[@"name"];
+        self.name = [self.identifier isEqualToString:@"0"]? @"Unknown" : dictionary[@"name"];
         self.photoURL = [NSURL URLWithString:dictionary[@"photoUrl"]];
 
         self.phones = [NSSet new];
@@ -25,10 +25,18 @@
             GVPhone *phone = [GVPhone new];
             phone.number = phoneDict[@"phoneNumber"];
             phone.name = phoneDict[@"phoneType"];
+            phone.contact = self;
             self.phones = [self.phones setByAddingObject:phone];
         }
     }
     return self;
+}
+
+- (GVPhone*)phoneWithNumber:(NSString*)number {
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"number == %@", number];
+    NSSet *filteredSet = [self.phones filteredSetUsingPredicate:pred];
+
+    return filteredSet.anyObject;
 }
 
 - (BOOL)isEqual:(id)object {

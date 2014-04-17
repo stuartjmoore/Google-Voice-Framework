@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class GVContact;
+
 @interface GVPhone : NSObject
+
+@property (nonatomic, weak) GVContact *contact;
 
 @property (nonatomic, strong) NSString *number, *name;
 
