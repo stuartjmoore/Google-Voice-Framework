@@ -10,6 +10,10 @@
 
 @implementation GVPhone
 
+- (NSString*)name {
+    return _name ?: @"unknown";
+}
+
 - (NSURL*)callURL {
     return [NSURL URLWithString:[NSString stringWithFormat:@"https://plus.google.com/hangouts/_/?hip=%@", self.number]];
 }
