@@ -10,11 +10,14 @@
 #import "GVContact.h"
 
 typedef NS_ENUM(NSInteger, GVMessageType) {
-    GVMessageTypeUnknown      = -1,
-    GVMessageTypeMissedCall   = 0,
-    GVMessageTypeVoicemail    = 2,
-    GVMessageTypeTextReceived = 10,
-    GVMessageTypeTextSent     = 11
+    GVMessageTypeUnknown       = -1,
+    GVMessageTypeMissedCall    =  0,
+    GVMessageTypeReceivedTCall =  1,
+    GVMessageTypeVoicemail     =  2,
+    GVMessageTypeRecordedCall  =  4,
+    GVMessageTypePlacedCall    =  8,
+    GVMessageTypeTextReceived  = 10,
+    GVMessageTypeTextSent      = 11
 };
 
 @interface GVMessage : NSObject
