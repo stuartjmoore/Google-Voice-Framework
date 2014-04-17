@@ -83,8 +83,9 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
     return [GVConnection requestJSONForPath:kGVRequestUnreadCountsPath withAuth:auth error:error];
 }
 
-+ (NSDictionary*)requestJSONForMessagesWithAuth:(NSString*)auth error:(NSError**)error {
-    return [GVConnection requestJSONForPath:kGVRequestMessagesPath withAuth:auth error:error];
++ (NSDictionary*)requestJSONInboxForPage:(NSUInteger)pageNum withAuth:(NSString*)auth error:(NSError**)error {
+    NSString *path = [NSString stringWithFormat:@"%@%zd", kGVRequestMessagesPath, pageNum];
+    return [GVConnection requestJSONForPath:path withAuth:auth error:error];
 }
 
 + (NSDictionary*)requestJSONForPath:(NSString*)path withAuth:(NSString*)auth error:(NSError**)error {

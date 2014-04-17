@@ -78,45 +78,52 @@
     if(!self.isLoggedIn)
         [self login];
 
-    NSError *error;
-    NSDictionary *dictionary = [GVConnection requestJSONForMessagesWithAuth:self.auth error:&error];
-
-    if(error) {
-        NSLog(@"error: %@", error);
-        return;
-    }
-
-    NSLog(@"dictionary: %@", dictionary);
-
-    self.r = dictionary[@"r"];
-
-    NSArray *messageList = dictionary[@"messageList"];
+    NSInteger pageNum = 0;
+    NSDictionary *dictionary;
     NSMutableOrderedSet *messages = [NSMutableOrderedSet new];
 
-    for(NSDictionary *messageDict in messageList) {
-        GVMessageType type = [messageDict[@"type"] integerValue];
-        GVMessage *message;
+    do {
+        pageNum++;
 
-        if(type == GVMessageTypeTextReceived || type == GVMessageTypeTextSent)
-            message = [[GVConversation alloc] initWithJSON:messageDict];
-        else if(type == GVMessageTypeMissedCall)
-            message = [[GVMissedCall alloc] initWithJSON:messageDict];
-        else if(type == GVMessageTypeVoicemail)
-            message = [[GVVoicemail alloc] initWithJSON:messageDict];
+        NSError *error;
+        dictionary = [GVConnection requestJSONInboxForPage:pageNum withAuth:self.auth error:&error];
 
-        NSString *phoneNumber = messageDict[@"phoneNumber"];
-        NSString *contactId = dictionary[@"contacts"][@"contactPhoneMap"][phoneNumber][@"contactId"];
-
-        GVContact *contact = [self contactWithId:contactId];
-
-        if(!contact) {
-            contact = [[GVContact alloc] initWithJSON:dictionary[@"contacts"][@"contactMap"][contactId]];
-            self.addressBook = [self.addressBook setByAddingObject:contact];
+        if(error) {
+            NSLog(@"error: %@", error);
+            return;
         }
 
-        message.contact = contact;
-        [messages addObject:message];
-    }
+        NSLog(@"dictionary: %@", dictionary);
+
+        self.r = dictionary[@"r"];
+
+        NSArray *messageList = dictionary[@"messageList"];
+
+        for(NSDictionary *messageDict in messageList) {
+            GVMessageType type = [messageDict[@"type"] integerValue];
+            GVMessage *message;
+
+            if(type == GVMessageTypeTextReceived || type == GVMessageTypeTextSent)
+                message = [[GVConversation alloc] initWithJSON:messageDict];
+            else if(type == GVMessageTypeMissedCall)
+                message = [[GVMissedCall alloc] initWithJSON:messageDict];
+            else if(type == GVMessageTypeVoicemail)
+                message = [[GVVoicemail alloc] initWithJSON:messageDict];
+
+            NSString *phoneNumber = messageDict[@"phoneNumber"];
+            NSString *contactId = dictionary[@"contacts"][@"contactPhoneMap"][phoneNumber][@"contactId"];
+
+            GVContact *contact = [self contactWithId:contactId];
+
+            if(!contact) {
+                contact = [[GVContact alloc] initWithJSON:dictionary[@"contacts"][@"contactMap"][contactId]];
+                self.addressBook = [self.addressBook setByAddingObject:contact];
+            }
+
+            message.contact = contact;
+            [messages addObject:message];
+        }
+    } while ([dictionary[@"totalSize"] integerValue] - pageNum * [dictionary[@"resultsPerPage"] integerValue] > 0);
 
     self.inbox = [NSOrderedSet orderedSetWithOrderedSet:messages];
 

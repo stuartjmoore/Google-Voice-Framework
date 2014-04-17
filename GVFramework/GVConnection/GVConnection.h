@@ -13,6 +13,6 @@
 + (NSDictionary*)loginWithUsername:(NSString*)username andPassword:(NSString*)password error:(NSError**)error;
 
 + (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth error:(NSError**)error;
-+ (NSDictionary*)requestJSONForMessagesWithAuth:(NSString*)auth error:(NSError**)error;
++ (NSDictionary*)requestJSONInboxForPage:(NSUInteger)pageNum withAuth:(NSString*)auth error:(NSError**)error;
 
 @end
