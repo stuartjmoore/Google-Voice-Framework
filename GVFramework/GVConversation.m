@@ -28,10 +28,6 @@
             [textMessages addObject:textMessage];
         }
 
-        [textMessages sortUsingComparator:^NSComparisonResult(GVMessage *obj1, GVMessage *obj2) {
-            return obj2.date == [obj1.date earlierDate:obj2.date];
-        }];
-
         self.textMessages = [NSOrderedSet orderedSetWithOrderedSet:textMessages];
     }
     return self;

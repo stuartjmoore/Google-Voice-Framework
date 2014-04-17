@@ -123,11 +123,6 @@
         [messages addObject:message];
     }
 
-    [messages unionOrderedSet:self.inbox];
-    [messages sortUsingComparator:^NSComparisonResult(GVMessage *obj1, GVMessage *obj2) {
-        return obj1.date == [obj1.date earlierDate:obj2.date];
-    }];
-
     self.inbox = [NSOrderedSet orderedSetWithOrderedSet:messages];
 
     NSLog(@"inbox: %@", self.inbox);
