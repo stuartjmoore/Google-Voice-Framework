@@ -17,10 +17,10 @@
 
 @property (nonatomic, strong) NSString *auth, *sid, *lsid, *r;
 @property (nonatomic, strong) NSOrderedSet *inbox;
+@property (nonatomic, strong) NSSet *addressBook;
 
 - (GVMessage*)messageWithId:(NSString*)identifier;
 - (GVContact*)contactWithId:(NSString*)identifier;
-- (GVContact*)contactWithId:(NSString*)identifier inSet:(NSOrderedSet*)set;
 
 @end
 
@@ -32,6 +32,7 @@
     self = [super init];
     if (self) {
         self.inbox = [NSOrderedSet new];
+        self.addressBook = [NSSet new];
     }
     return self;
 }
@@ -115,9 +116,12 @@
         NSString *phoneNumber = messageDict[@"phoneNumber"];
         NSString *contactId = dictionary[@"contacts"][@"contactPhoneMap"][phoneNumber][@"contactId"];
 
-        GVContact *contact = [self contactWithId:contactId]
-                          ?: [self contactWithId:contactId inSet:messages]
-                          ?: [[GVContact alloc] initWithJSON:dictionary[@"contacts"][@"contactMap"][contactId]];
+        GVContact *contact = [self contactWithId:contactId];
+
+        if(!contact) {
+            contact = [[GVContact alloc] initWithJSON:dictionary[@"contacts"][@"contactMap"][contactId]];
+            self.addressBook = [self.addressBook setByAddingObject:contact];
+        }
 
         message.contact = contact;
         [messages addObject:message];
@@ -125,6 +129,7 @@
 
     self.inbox = [NSOrderedSet orderedSetWithOrderedSet:messages];
 
+    NSLog(@"addressBook: %@", self.addressBook);
     NSLog(@"inbox: %@", self.inbox);
 }
 
@@ -138,14 +143,10 @@
 }
 
 - (GVContact*)contactWithId:(NSString*)identifier {
-    return [self contactWithId:identifier inSet:self.inbox];
-}
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
+    NSSet *filteredSet = [self.addressBook filteredSetUsingPredicate:pred];
 
-- (GVContact*)contactWithId:(NSString*)identifier inSet:(NSOrderedSet*)set {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"contact.identifier == %@", identifier];
-    NSOrderedSet *filteredOrderedSet = [set filteredOrderedSetUsingPredicate:pred];
-
-    return [filteredOrderedSet.set.anyObject contact];
+    return filteredSet.anyObject;
 }
 
 @end
