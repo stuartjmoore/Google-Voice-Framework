@@ -80,7 +80,7 @@
 
     NSInteger pageNum = 0;
     NSDictionary *dictionary;
-    NSMutableOrderedSet *messages = [NSMutableOrderedSet new];
+    NSMutableOrderedSet *newInbox = [NSMutableOrderedSet new];
 
     do {
         pageNum++;
@@ -121,11 +121,11 @@
             }
 
             message.contact = contact;
-            [messages addObject:message];
+            [newInbox addObject:message];
         }
     } while ([dictionary[@"totalSize"] integerValue] - pageNum * [dictionary[@"resultsPerPage"] integerValue] > 0);
 
-    self.inbox = [NSOrderedSet orderedSetWithOrderedSet:messages];
+    self.inbox = [NSOrderedSet orderedSetWithOrderedSet:newInbox];
 
     NSLog(@"addressBook: %@", self.addressBook);
     NSLog(@"inbox: %@", self.inbox);
