@@ -22,6 +22,7 @@
         self.spam = [dictionary[@"isSpam"] boolValue];
         self.trash = [dictionary[@"isTrash"] boolValue];
         self.starred = [dictionary[@"star"] boolValue];
+        self.read = [dictionary[@"isRead"] boolValue];
 
         NSMutableOrderedSet *textMessages = [NSMutableOrderedSet new];
 
@@ -61,7 +62,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@: %@", self.phone.contact.name, self.textMessages];
+    return [NSString stringWithFormat:@"%@: %@ %@", self.phone.contact.name, self.isRead?@"✓":@"✘", self.textMessages];
 }
 
 @end

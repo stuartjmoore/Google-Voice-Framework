@@ -52,7 +52,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"<%@> “%@”", self.date, self.text];
+    return [NSString stringWithFormat:@"<%@> %@ “%@”", self.date, self.isRead?@"✓":@"✘", self.text];
 }
 
 @end

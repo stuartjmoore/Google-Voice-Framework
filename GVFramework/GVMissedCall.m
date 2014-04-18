@@ -40,7 +40,7 @@
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@: <%@> missed call", self.phone.contact.name, self.date];
+    return [NSString stringWithFormat:@"%@: <%@> %@ missed call", self.phone.contact.name, self.date, self.isRead?@"✓":@"✘"];
 }
 
 @end

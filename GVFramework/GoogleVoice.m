@@ -22,7 +22,6 @@
 @property (nonatomic, strong) NSOrderedSet *inbox;
 @property (nonatomic, strong) NSSet *addressBook;
 
-- (GVMessage*)messageWithId:(NSString*)identifier;
 - (GVContact*)contactWithId:(NSString*)identifier;
 
 @end
@@ -84,6 +83,7 @@
     NSInteger pageNum = 0;
     NSDictionary *dictionary;
     NSMutableOrderedSet *newInbox = [NSMutableOrderedSet new];
+    NSMutableOrderedSet *newUnread = [NSMutableOrderedSet new];
 
     do {
         pageNum++;
@@ -96,7 +96,7 @@
             return;
         }
 
-        NSLog(@"dictionary: %@", dictionary);
+//        NSLog(@"dictionary: %@", dictionary);
 
         self.r = dictionary[@"r"];
 
@@ -124,6 +124,18 @@
 
             message.phone = [contact phoneWithNumber:phoneNumber];
             [newInbox addObject:message];
+
+            NSUInteger index = [self.inbox indexOfObject:message];
+
+            if(index == NSNotFound) {
+                if(!message.isRead)
+                    [newUnread addObject:message];
+            } else {
+                GVVoicemail *oldMessage = [self.inbox objectAtIndex:index];
+
+                if(!message.isRead && oldMessage.isRead)
+                    [newUnread addObject:message];
+            }
         }
     } while ([dictionary[@"totalSize"] integerValue] - pageNum * [dictionary[@"resultsPerPage"] integerValue] > 0);
 
@@ -131,16 +143,10 @@
 
     NSLog(@"addressBook: %@", self.addressBook);
     NSLog(@"inbox: %@", self.inbox);
+    NSLog(@"newUnread: %@", newUnread);
 }
 
 #pragma mark -
-
-- (GVMessage*)messageWithId:(NSString*)identifier {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
-    NSOrderedSet *filteredOrderedSet = [self.inbox filteredOrderedSetUsingPredicate:pred];
-
-    return filteredOrderedSet.set.anyObject;
-}
 
 - (GVContact*)contactWithId:(NSString*)identifier {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
