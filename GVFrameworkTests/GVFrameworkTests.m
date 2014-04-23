@@ -12,6 +12,7 @@
 @interface GVFrameworkTests : XCTestCase
 
 @property (nonatomic, strong) GoogleVoice *googleVoice;
+@property (nonatomic, strong) NSDictionary *creds;
 
 @end
 
@@ -22,13 +23,13 @@
     [super setUp];
 
     NSString *credsFilepath = [[NSBundle bundleForClass:self.class] pathForResource:@"Creds" ofType:@"plist"];
-    NSDictionary *creds = [NSDictionary dictionaryWithContentsOfFile:credsFilepath];
+    self.creds = [NSDictionary dictionaryWithContentsOfFile:credsFilepath];
 
-    XCTAssertTrue(creds, @"You need to create GVFrameworkTests/Creds.plist to test via your account (it’s gitignored).");
+    XCTAssertTrue(self.creds, @"You need to create GVFrameworkTests/Creds.plist to test via your account (it’s gitignored).");
 
     self.googleVoice = [GoogleVoice new];
-    self.googleVoice.username = creds[@"username"];
-    self.googleVoice.password = creds[@"password"];
+    self.googleVoice.username = self.creds[@"username"];
+    self.googleVoice.password = self.creds[@"password"];
 }
 
 - (void)testUnreadCounts
@@ -39,6 +40,11 @@
 - (void)testMessages
 {
     [self.googleVoice updateMessages];
+}
+
+- (void)testSendSMS
+{
+    [self.googleVoice sendTestMessageTo:self.creds[@"phoneNumber"]];
 }
 
 - (void)tearDown

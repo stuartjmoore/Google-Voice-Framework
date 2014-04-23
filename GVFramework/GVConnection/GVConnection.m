@@ -10,6 +10,7 @@
 
 NSString *const kGVScheme = @"https";
 NSString *const kGVHost = @"www.google.com";
+NSString *const kGVHostClients4 = @"clients4.google.com";
 NSUInteger const kGVPort = 443;
 
 NSString *const kGVHTTPMethod = @"POST";
@@ -23,7 +24,11 @@ NSString *const kGVLoginAccountType = @"GOOGLE";
 
 NSString *const kGVRequestPath = @"voice/b/0/request";
 NSString *const kGVRequestUnreadCountsPath = @"unread";
-NSString *const kGVRequestMessagesPath = @"messages/?page=";
+NSString *const kGVRequestMessagesPath = @"messages/?page";
+
+NSString *const kGVRequestCheckMessagesPath = @"voice/xpc/checkMessages?r";
+
+NSString *const kGVSendSMSPath = @"voice/sms/send";
 
 @interface GVConnection ()
 
@@ -84,7 +89,7 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
 }
 
 + (NSDictionary*)requestJSONInboxForPage:(NSUInteger)pageNum withAuth:(NSString*)auth error:(NSError**)error {
-    NSString *path = [NSString stringWithFormat:@"%@%zd", kGVRequestMessagesPath, pageNum];
+    NSString *path = [NSString stringWithFormat:@"%@=%zd", kGVRequestMessagesPath, pageNum];
     return [GVConnection requestJSONForPath:path withAuth:auth error:error];
 }
 
@@ -117,6 +122,105 @@ NSString *const kGVRequestMessagesPath = @"messages/?page=";
         
         return dictionary;
     }
+}
+
+#pragma mark -
+/*
++ (NSDictionary*)requestJSONForRNR:(NSString*)rnr withAuth:(NSString*)auth error:(NSError**)error {
+    if(!auth)
+        return nil;
+
+	rnr = [rnr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	rnr = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                               (CFStringRef)rnr,
+                                                                               NULL,
+                                                                               CFSTR("!*'();:^@&=+$,/?%#[]|"),
+                                                                               kCFStringEncodingUTF8));
+
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@=%@", kGVScheme, kGVHostClients4, kGVRequestCheckMessagesPath, rnr];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSLog(@"urlString: %@", urlString);
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setAllHTTPHeaderFields:@{
+        @"User-Agent"    : kGVHTTPHeaderUserAgent,
+        @"Authorization" : [kGVHTTPHeaderAuthorizationPrefix stringByAppendingString:auth]
+    }];
+
+    NSHTTPURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
+
+    if(*error || !data || response.statusCode != 200) {
+        NSLog(@"error: %@", *error);
+        return nil;
+    } else {
+        NSLog(@"data: %@", data);
+
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
+
+        if(*error || !dictionary) {
+            NSLog(@"error: %@", *error);
+            return nil;
+        }
+        
+        return dictionary;
+    }
+}
+*/
+#pragma mark - 
+
++ (BOOL)sendSMSToNumber:(NSString*)phoneNumer WithText:(NSString*)text AndRNR:(NSString*)rnr error:(NSError**)error {
+    NSString *postString = [NSString stringWithFormat:@"phoneNumber=%@&text=%@&_rnr_se=%@",
+                            phoneNumer.percentEncode, text.percentEncode, rnr.percentEncode];
+
+    NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@:%zd/%@/", kGVScheme, kGVHost, kGVPort, kGVSendSMSPath];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:kGVHTTPMethod];
+    [request setHTTPBody:postData];
+    [request setAllHTTPHeaderFields:@{
+        @"User-Agent"    : kGVHTTPHeaderUserAgent,
+        @"Authorization" : kGVHTTPHeaderAuthorizationPrefix,
+        @"Content-Type"  : kGVHTTPHeaderContentType
+    }];
+
+    NSHTTPURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
+
+    if(*error || !data || response.statusCode != 200) {
+        NSLog(@"error: %@", *error);
+        return NO;
+    } else {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
+
+        NSLog(@"data: %@", dictionary);
+
+        if(*error || !dictionary) {
+            NSLog(@"error: %@", *error);
+            return NO;
+        }
+
+        return YES;
+    }
+
+    return NO;
+}
+
+@end
+
+#pragma mark -
+
+@implementation NSString (encode)
+
+- (NSString*)percentEncode {
+    return (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                (CFStringRef)self, NULL,
+                                                                                CFSTR("!*'();:^@&=+$,/?%#[]|"),
+                                                                                kCFStringEncodingUTF8));
 }
 
 @end

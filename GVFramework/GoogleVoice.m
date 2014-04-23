@@ -148,6 +148,22 @@
     NSLog(@"newUnread: %@", newUnread);
 }
 
+- (void)sendTestMessageTo:(NSString*)phoneNumber {
+    if(!self.isLoggedIn)
+        [self login];
+
+    if(!self.r)
+        [self updateUnreadCounts];
+
+    NSError *error;
+    BOOL success = [GVConnection sendSMSToNumber:phoneNumber WithText:@"Hi, Mom! 😍 !#$&'()*\n+,/:;=?@[]" AndRNR:self.r error:&error];
+
+    if(error || !success) {
+        NSLog(@"error: %@", error);
+        return;
+    }
+}
+
 #pragma mark -
 
 - (GVContact*)contactWithId:(NSString*)identifier {

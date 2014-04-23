@@ -15,4 +15,12 @@
 + (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth error:(NSError**)error;
 + (NSDictionary*)requestJSONInboxForPage:(NSUInteger)pageNum withAuth:(NSString*)auth error:(NSError**)error;
 
++ (BOOL)sendSMSToNumber:(NSString*)phoneNumer WithText:(NSString*)text AndRNR:(NSString*)rnr error:(NSError**)error;
+
+@end
+
+@interface NSString (encode)
+
+- (NSString*)percentEncode;
+
 @end

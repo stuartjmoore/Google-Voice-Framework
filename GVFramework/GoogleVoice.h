@@ -18,4 +18,6 @@
 - (void)updateUnreadCounts;
 - (void)updateMessages;
 
+- (void)sendTestMessageTo:(NSString*)phoneNumber;
+
 @end
