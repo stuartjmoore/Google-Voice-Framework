@@ -74,6 +74,8 @@
     }
 
     self.r = dictionary[@"r"];
+
+    NSLog(@"dictionary: %@", dictionary);
 }
 
 - (void)updateMessages {
@@ -96,7 +98,7 @@
             return;
         }
 
-//        NSLog(@"dictionary: %@", dictionary);
+        NSLog(@"dictionary: %@", dictionary);
 
         self.r = dictionary[@"r"];
 

@@ -24,6 +24,8 @@
     NSString *credsFilepath = [[NSBundle bundleForClass:self.class] pathForResource:@"Creds" ofType:@"plist"];
     NSDictionary *creds = [NSDictionary dictionaryWithContentsOfFile:credsFilepath];
 
+    XCTAssertTrue(creds, @"You need to create GVFrameworkTests/Creds.plist to test via your account (it’s gitignored).");
+
     self.googleVoice = [GoogleVoice new];
     self.googleVoice.username = creds[@"username"];
     self.googleVoice.password = creds[@"password"];
@@ -31,7 +33,7 @@
 
 - (void)testUnreadCounts
 {
-//    [self.googleVoice updateUnreadCounts];
+    [self.googleVoice updateUnreadCounts];
 }
 
 - (void)testMessages
