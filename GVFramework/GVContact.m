@@ -32,6 +32,22 @@
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder*)coder {
+    self = [super init];
+
+    if (!self)
+        return nil;
+
+    _identifier = [coder decodeObjectForKey:@"identifier"];
+    _name = [coder decodeObjectForKey:@"name"];
+    _photoURL = [coder decodeObjectForKey:@"photoUrl"];
+
+    _phones = [coder decodeObjectForKey:@"phones"];
+    _emails = [coder decodeObjectForKey:@"emails"];
+
+    return self;
+}
+
 - (GVPhone*)phoneWithNumber:(NSString*)number {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"number == %@", number];
     NSSet *filteredSet = [self.phones filteredSetUsingPredicate:pred];
@@ -59,6 +75,14 @@
 
 - (NSString*)description {
     return [NSString stringWithFormat:@"%@ <%@> %@", self.name, self.identifier, self.phones];
+}
+
+- (void)encodeWithCoder:(NSCoder*)coder {
+    [coder encodeObject:self.identifier forKey:@"identifier"];
+    [coder encodeObject:self.name forKey:@"name"];
+    [coder encodeObject:self.photoURL forKey:@"photoURL"];
+    [coder encodeObject:self.phones forKey:@"phones"];
+    [coder encodeObject:self.emails forKey:@"emails"];
 }
 
 @end

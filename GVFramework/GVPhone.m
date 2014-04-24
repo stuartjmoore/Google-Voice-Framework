@@ -10,6 +10,19 @@
 
 @implementation GVPhone
 
+- (instancetype)initWithCoder:(NSCoder*)coder {
+    self = [super init];
+
+    if (!self)
+        return nil;
+
+    _contact = [coder decodeObjectForKey:@"contact"];
+    _number = [coder decodeObjectForKey:@"number"];
+    _name = [coder decodeObjectForKey:@"name"];
+
+    return self;
+}
+
 - (NSString*)name {
     return _name ?: @"unknown";
 }
@@ -38,6 +51,12 @@
 
 - (NSString*)description {
     return [NSString stringWithFormat:@"%@: %@", self.name, self.number];
+}
+
+- (void)encodeWithCoder:(NSCoder*)coder {
+    [coder encodeObject:self.contact forKey:@"contact"];
+    [coder encodeObject:self.number forKey:@"number"];
+    [coder encodeObject:self.name forKey:@"name"];
 }
 
 @end

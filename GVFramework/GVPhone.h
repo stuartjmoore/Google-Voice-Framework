@@ -10,7 +10,7 @@
 
 @class GVContact;
 
-@interface GVPhone : NSObject
+@interface GVPhone : NSObject <NSCoding>
 
 @property (nonatomic, weak) GVContact *contact;
 

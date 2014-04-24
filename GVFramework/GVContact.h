@@ -10,7 +10,7 @@
 
 @class GVPhone;
 
-@interface GVContact : NSObject
+@interface GVContact : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *identifier, *name;
 @property (nonatomic, strong) NSURL *photoURL;
