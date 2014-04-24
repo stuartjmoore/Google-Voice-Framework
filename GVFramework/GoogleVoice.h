@@ -18,6 +18,10 @@
 - (void)updateUnreadCounts;
 - (void)updateMessages;
 
+- (void)startCallTo:(NSString*)phoneNumber;
+
 - (void)sendTestMessageTo:(NSString*)phoneNumber;
+
+- (void)markMessageIdAsRead:(NSString*)identifier;
 
 @end

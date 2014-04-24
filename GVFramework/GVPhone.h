@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSString *number, *name;
 
++ (NSURL*)callURLWithNumber:(NSString*)number;
 - (NSURL*)callURL;
 
 @end

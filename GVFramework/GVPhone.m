@@ -10,6 +10,10 @@
 
 @implementation GVPhone
 
++ (NSURL*)callURLWithNumber:(NSString*)number {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://plus.google.com/hangouts/_/?hip=%@", number]];
+}
+
 - (instancetype)initWithCoder:(NSCoder*)coder {
     self = [super init];
 
@@ -28,7 +32,7 @@
 }
 
 - (NSURL*)callURL {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"https://plus.google.com/hangouts/_/?hip=%@", self.number]];
+    return [GVPhone callURLWithNumber:self.number];
 }
 
 - (BOOL)isEqual:(id)object {

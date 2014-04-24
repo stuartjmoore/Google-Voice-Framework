@@ -148,6 +148,14 @@
     NSLog(@"newUnread: %@", newUnread);
 }
 
+#pragma mark - Call
+
+- (void)startCallTo:(NSString*)phoneNumber {
+    NSLog(@"%@", [GVPhone callURLWithNumber:phoneNumber]);
+}
+
+#pragma mark - SMS
+
 - (void)sendTestMessageTo:(NSString*)phoneNumber {
     if(!self.isLoggedIn)
         [self login];
@@ -164,7 +172,25 @@
     }
 }
 
-#pragma mark -
+#pragma mark - Mark
+
+- (void)markMessageIdAsRead:(NSString*)identifier {
+    if(!self.isLoggedIn)
+        [self login];
+
+    if(!self.r)
+        [self updateUnreadCounts];
+
+    NSError *error;
+    BOOL success = [GVConnection markMessageIds:@[identifier] withBool:YES forKey:@"mark" usingRNR:self.r error:&error];
+
+    if(error || !success) {
+        NSLog(@"error: %@", error);
+        return;
+    }
+}
+
+#pragma mark - Helpers
 
 - (GVContact*)contactWithId:(NSString*)identifier {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];

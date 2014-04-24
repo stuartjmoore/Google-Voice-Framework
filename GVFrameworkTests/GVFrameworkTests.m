@@ -42,9 +42,19 @@
     [self.googleVoice updateMessages];
 }
 
+- (void)testCall
+{
+    [self.googleVoice startCallTo:self.creds[@"phoneNumber"]];
+}
+
 - (void)testSendSMS
 {
     [self.googleVoice sendTestMessageTo:self.creds[@"phoneNumber"]];
+}
+
+- (void)testMarkAsRead
+{
+    [self.googleVoice markMessageIdAsRead:@""];
 }
 
 - (void)tearDown

@@ -30,6 +30,8 @@ NSString *const kGVRequestCheckMessagesPath = @"voice/xpc/checkMessages?r";
 
 NSString *const kGVSendSMSPath = @"voice/sms/send";
 
+static NSDictionary *kGVMarkValues = nil;
+
 @interface GVConnection ()
 
 + (NSDictionary*)requestJSONForPath:(NSString*)path withAuth:(NSString*)auth error:(NSError**)error;
@@ -37,6 +39,22 @@ NSString *const kGVSendSMSPath = @"voice/sms/send";
 @end
 
 @implementation GVConnection
+
++ (void)initialize {
+    if (self == GVConnection.class) {
+        static dispatch_once_t onceToken;
+
+        dispatch_once(&onceToken, ^{
+            kGVMarkValues = @{
+                @"archiveMessages": @"archive",
+                @"mark": @"read",
+                @"star": @"star",
+                @"deleteMessages": @"trash",
+                @"spam": @"spam"
+            };
+        });
+    }
+}
 
 + (NSDictionary*)loginWithUsername:(NSString*)username andPassword:(NSString*)password error:(NSError**)error {
     if(!username || !password)
@@ -82,7 +100,7 @@ NSString *const kGVSendSMSPath = @"voice/sms/send";
     }
 }
 
-#pragma mark -
+#pragma mark - Update
 
 + (NSDictionary*)requestJSONForUnreadCountsWithAuth:(NSString*)auth error:(NSError**)error {
     return [GVConnection requestJSONForPath:kGVRequestUnreadCountsPath withAuth:auth error:error];
@@ -124,8 +142,9 @@ NSString *const kGVSendSMSPath = @"voice/sms/send";
     }
 }
 
-#pragma mark -
 /*
+#pragma mark -
+
 + (NSDictionary*)requestJSONForRNR:(NSString*)rnr withAuth:(NSString*)auth error:(NSError**)error {
     if(!auth)
         return nil;
@@ -168,7 +187,7 @@ NSString *const kGVSendSMSPath = @"voice/sms/send";
     }
 }
 */
-#pragma mark - 
+#pragma mark - SMS
 
 + (BOOL)sendSMSToNumber:(NSString*)phoneNumer WithText:(NSString*)text AndRNR:(NSString*)rnr error:(NSError**)error {
     NSString *postString = [NSString stringWithFormat:@"phoneNumber=%@&text=%@&_rnr_se=%@",
@@ -207,6 +226,48 @@ NSString *const kGVSendSMSPath = @"voice/sms/send";
         return YES;
     }
 
+    return NO;
+}
+
+#pragma mark - Mark
+
++ (BOOL)markMessageIds:(NSArray*)identifiers withBool:(BOOL)value forKey:(NSString*)mark usingRNR:(NSString*)rnr error:(NSError**)error {
+    NSString *postMessageIdsString = [identifiers componentsJoinedByString:@"&messages="];
+    NSString *postString = [NSString stringWithFormat:@"messages=%@&%@=%d&_rnr_se=%@",
+                            postMessageIdsString, kGVMarkValues[mark], value?1:0, rnr.percentEncode];
+    NSData *postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@:%zd/voice/inbox/%@/", kGVScheme, kGVHost, kGVPort, mark];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:kGVHTTPMethod];
+    [request setHTTPBody:postData];
+    [request setAllHTTPHeaderFields:@{
+        @"User-Agent"    : kGVHTTPHeaderUserAgent,
+        @"Authorization" : kGVHTTPHeaderAuthorizationPrefix,
+        @"Content-Type"  : kGVHTTPHeaderContentType
+    }];
+
+    NSHTTPURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
+
+    if(*error || !data || response.statusCode != 200) {
+        NSLog(@"error: %@", *error);
+        return NO;
+    } else {
+        NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:error];
+
+        NSLog(@"data: %@", dictionary);
+
+        if(*error || !dictionary) {
+            NSLog(@"error: %@", *error);
+            return NO;
+        }
+        
+        return YES;
+    }
+    
     return NO;
 }
 

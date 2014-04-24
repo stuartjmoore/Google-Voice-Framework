@@ -17,6 +17,8 @@
 
 + (BOOL)sendSMSToNumber:(NSString*)phoneNumer WithText:(NSString*)text AndRNR:(NSString*)rnr error:(NSError**)error;
 
++ (BOOL)markMessageIds:(NSArray*)identifiers withBool:(BOOL)value forKey:(NSString*)mark usingRNR:(NSString*)rnr error:(NSError**)error;
+
 @end
 
 @interface NSString (encode)
